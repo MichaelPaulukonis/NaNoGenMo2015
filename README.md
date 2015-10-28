@@ -21,3 +21,15 @@ https://github.com/tdcha5/Character-Conversation - uh. student work. has a group
 
 https://github.com/crathulis/ConversationCreator - also in Java
 
+http://forum.makega.me/t/procedural-narrative-dialogue/91/8
+
+http://notepad.smedresmania.com/2011/04/20/quality-based-narrative/
+
+https://groups.google.com/forum/#!topic/rec.games.roguelike.development/gj0WB-ydmNY
+
+http://tomasjurman.blogspot.com/2013/02/interactive-dialogue-for-html5-game.html
+
+http://www.escapistmagazine.com/articles/view/video-games/columns/experienced-points/10168-Procedural-Stories
+
+https://www.reddit.com/r/gamedev/comments/1d3zrz/the_details_of_procedural_story_generation_and/
+
