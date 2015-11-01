@@ -35,7 +35,7 @@ http://tomasjurman.blogspot.com/2013/02/interactive-dialogue-for-html5-game.html
  - http://www.escapistmagazine.com/articles/view/video-games/columns/experienced-points/10168-Procedural-Stories
  - https://www.reddit.com/r/gamedev/comments/1d3zrz/the_details_of_procedural_story_generation_and/
  - [Meta-AQUA](https://web.archive.org/web/20100427191143/http://mcox.org/Meta-AQUA/) - uses a modified version of TaleSpin to produce input
-
+- [RoleModel: Towards a Formal Model of Dramatic Roles for Story Generation ](https://users.soe.ucsc.edu/~amsmith/papers/a17-chen.pdf)
 
 # Minstrel
 
@@ -52,7 +52,7 @@ http://tomasjurman.blogspot.com/2013/02/interactive-dialogue-for-html5-game.html
  - [Micro TaleSpin](https://news.ycombinator.com/item?id=9947986) @ HackerNews
  - [Micro TaleSpin]( http://norvig.com/ltd/test/micro-tale-spin.lisp) - Peter Norvig
  - [Inside Computer Understanding: 5 Programs plus miniatures](https://books.google.com/books?id=fdDGBQAAQBAJ&pg=PT272&lpg=PT272&dq=%22talespin%22+-disney+lisp&source=bl&ots=YZ1w-skWxN&sig=aqKgntGecLRwphMaLfd0bco540w&hl=en&sa=X&ved=0CEAQ6AEwB2oVChMIqbm3_KfgyAIVQqA-Ch2hhw5h#v=onepage&q=%22talespin%22%20-disney%20lisp&f=false) - 2 chapters on TaleSpin and MicroTaleSpin; google books link. The book itself can be had used for < $10
-
+ - [Inside Micro Tale-Spin: Symbolic Computing with Lisp applied to story telling.](http://lispm.de/mts)
 
 # The Giant Who Had No Heart in His Body
 
