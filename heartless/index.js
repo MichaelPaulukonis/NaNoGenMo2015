@@ -20,5 +20,6 @@
  I'm _thinking_ that some sort of knoweldge/rule system is required
  to deal with abilities, locales, antagonists, etc.
  but maybe it doesn't have to me even that smart.
- see 2014's example of .... an imaginary bestiary. that I can't find back.
+ see 2014's example of ....
+ [A Full and Complete Reckoning of Uncommon Mythical and Monstrous Creatures](https://github.com/dariusk/NaNoGenMo-2014/issues/120)
 */
