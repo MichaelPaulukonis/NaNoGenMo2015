@@ -26,9 +26,28 @@
 
 
 
-var heartless = function() {
+var Heartless = function() {
 
+    if(!(this instanceof Heartless)) {
+        return new Heartless();
+    }
+
+    this.getHelper = function() {
+
+    };
+
+    this.getHelpers = function(n) {
+
+    };
+
+    this.getAntagonist = function() {
+
+    };
+
+    this.getAntagonists = function(n) {
+
+    };
 
 };
 
-module.exports = heartless;
+module.exports = Heartless;

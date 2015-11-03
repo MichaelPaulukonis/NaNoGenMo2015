@@ -1,0 +1,33 @@
+{
+  "name": "nanogenmo2015",
+  "version": "1.0.0",
+  "description": "generate 50K words in November, or bust!",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^3.4.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelpaulukonis/nanogenmo2015"
+  },
+  "keywords": [
+    "nanogenmo",
+    "generative",
+    "text",
+    "computational",
+    "narratology"
+  ],
+  "author": "Michael Paulukonis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelpaulukonis/nanogenmo2015/issues"
+  },
+  "homepage": "https://github.com/michaelpaulukonis/nanogenmo2015"
+}
