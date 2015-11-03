@@ -57,26 +57,47 @@ var Heartless = function() {
    1) function in the antogonist locale and
    2) defeat the antagonist
    */
-  var Helper = function() {
+  function Creature(name, locale, ability, defeatedBy) {
 
-    if((!this instanceof Helper)) {
-      return new Helper();
+    if(!(this instanceof Creature)) {
+      return new Creature();
     }
 
-    this.local = 'locale';
-    this.name = 'name';
-    this.ability = 'ability';
-    this.defeatedBy = 'kryptonite';
+    if (name === undefined) { name = 'name'; }
+    if (locale === undefined) { locale = 'locale'; }
+    if (ability === undefined) { ability = 'ability'; }
+    if (defeatedBy === undefined) { defeatedBy = 'defeatedBy'; }
+
+    this.name = name;
+    this.locale = locale;
+    this.ability = ability;
+    this.defeatedBy = defeatedBy;
 
   };
 
+  this.Creature = Creature;
 
-  this.getHelper = function() {
+  this.getHelper = function(name, locale, ability, defeatedBy) {
 
+    // TODO: if nothing passed in, populate randomly
+    return new Creature(name, locale, ability, defeatedBy);
   };
 
   this.getHelpers = function(n) {
 
+    var dc = new Creature(); // defaultCreature
+    var helpers = [];
+
+    // place-holder until a real random system shows up
+    // in which case, we'd be calling getHelper
+    for(var i = 0; i < n; i++) {
+      helpers.push(new Creature(`${dc.name}-${i+1}`,
+                                `${dc.locale}-${i+1}`,
+                                `${dc.ability}-${i+1}`,
+                                `${dc.defeatedBy}-${i+1}`));
+    }
+
+    return helpers;
   };
 
   this.getAntagonist = function() {
@@ -99,14 +120,17 @@ close to a giant's castle, and he turned them all, both princes and
 princesses, to stone in a fit of rage.
 
 When they did not return, the king, their father, tried to prevent
-their brother from following, but he went. On the way, he gave food to
-a starving raven, helped a salmon back into the river, and gave a
-starving wolf his horse to eat. The wolf let the prince ride on him,
-instead, and showed him the giant's castle, telling him to go inside.
-The prince was reluctant fearing the wrath of the giant, but the wolf
-consoled him. The wolf persuaded the prince to enter the castle for
-there he would encounter not the giant, but the princess the giant
-kept prisoner.
+their brother from following, but he went.
+
+[TODO: introduction of helpers occurs here]
+
+On the way, he gave food to a starving raven, helped a salmon back
+into the river, and gave a starving wolf his horse to eat. The wolf
+let the prince ride on him, instead, and showed him the giant's
+castle, telling him to go inside. The prince was reluctant fearing the
+wrath of the giant, but the wolf consoled him. The wolf persuaded the
+prince to enter the castle for there he would encounter not the giant,
+but the princess the giant kept prisoner.
 
 The princess was very beautiful and the prince wanted to know how he
 could kill the giant and set her and his family free. The princess
