@@ -14,6 +14,19 @@ var tester = function() {
 
             var h = new Heartless();
 
+            it('should have a getIntro() method', function() {
+                expect(typeof(h.getIntro)).to.equal('function');
+            });
+
+            it('should have a getPackage() method', function() {
+                expect(typeof(h.getPackage)).to.equal('function');
+            });
+
+            it('should have a getPackages(n) method', function() {
+                expect(typeof(h.getPackages)).to.equal('function');
+            });
+
+
             it('should have a getHelper() method', function() {
                 expect(typeof(h.getHelper)).to.equal('function');
             });
