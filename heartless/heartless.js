@@ -24,7 +24,7 @@
  [A Full and Complete Reckoning of Uncommon Mythical and Monstrous Creatures](https://github.com/dariusk/NaNoGenMo-2014/issues/120)
  */
 
-"use strict";
+'use strict';
 
 var Heartless = function() {
 
@@ -32,21 +32,44 @@ var Heartless = function() {
     return new Heartless();
   }
 
-  // return helper, encounter locale, and antagonist
-  // helpers and antagonists will be instances of the same type
-  // for now, let's call this a ... package
-  // FOR WONT OF A BETTER TERM
+  var useRandom = true;
+
+  // temporary use
+  function randomString(length) {
+    return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
+  }
+
+  /*
+   consists of a helper and an antagonist
+   we create the antagonist first
+   then the helper, which will use the defeatedBy as its ability
+
+   for now, let's call this a ... package
+   FOR WONT OF A BETTER TERM
+   */
   this.getPackage = function() {
+
+    var antagonist = this.getHelper();
+    var helper = this.getHelper({ ability: antagonist.defeatedBy });
+
+    return {
+      antagonist: antagonist,
+      helper: helper
+    };
 
   };
 
   this.getPackages = function(n) {
 
-    // return n Packages...
+    var packs = [];
+
+    for(var i = 0; i < n; i++) {
+      packs.push(this.getPackage());
+    }
+
+    return packs;
 
   };
-
-  // TODO: junk all of this, or rewrite...
 
   /*
    helper or antagonist?
@@ -65,17 +88,24 @@ var Heartless = function() {
 
     if (config === undefined) { config = {}; }
 
-    if (config.name === undefined) { config.name = 'name'; }
-    if (config.locale === undefined) { config.locale = 'locale'; }
-    if (config.ability === undefined) { config.ability = 'ability'; }
-    if (config.defeatedBy === undefined) { config.defeatedBy = 'defeatedBy'; }
+    if (useRandom) {
+      if (config.name === undefined) { config.name = randomString(10); }
+      if (config.locale === undefined) { config.locale = randomString(10); }
+      if (config.ability === undefined) { config.ability = randomString(10); }
+      if (config.defeatedBy === undefined) { config.defeatedBy = randomString(10); }
+    } else {
+      if (config.name === undefined) { config.name = 'name'; }
+      if (config.locale === undefined) { config.locale = 'locale'; }
+      if (config.ability === undefined) { config.ability = 'ability'; }
+      if (config.defeatedBy === undefined) { config.defeatedBy = 'defeatedBy'; }
+    }
 
     this.name = config.name;
     this.locale = config.locale;
     this.ability = config.ability;
     this.defeatedBy = config.defeatedBy;
 
-  };
+  }
 
   this.Creature = Creature;
 
@@ -105,13 +135,6 @@ var Heartless = function() {
     return helpers;
   };
 
-  this.getAntagonist = function() {
-
-  };
-
-  this.getAntagonists = function(n) {
-
-  };
 
   this.getIntro = function() {
 

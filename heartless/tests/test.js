@@ -30,7 +30,7 @@ var tester = function() {
         expect(typeof(h.getHelper)).to.equal('function');
       });
 
-     it('getHelper() should return an object', function() {
+      it('getHelper() should return an object', function() {
         expect(typeof(h.getHelper())).to.equal('object');
       });
 
@@ -40,14 +40,6 @@ var tester = function() {
 
       it('getHelpers(n) should return an array ', function() {
         expect(typeof(h.getHelpers)).to.equal('function');
-      });
-
-      it('should have a getAntagonist() method', function() {
-        expect(typeof(h.getAntagonist)).to.equal('function');
-      });
-
-      it('should have a getAntagonists(n) method', function() {
-        expect(typeof(h.getAntagonists)).to.equal('function');
       });
 
       it('should have a Creature function', function() {
@@ -62,13 +54,20 @@ var tester = function() {
 
       var h = new Heartless();
 
+      var creature = new h.Creature();
 
-      it('it should return an object', function() {
-        expect(typeof(h.Creature())).to.equal('object');
+      it('should return an object', function() {
+        expect(typeof(creature)).to.equal('object');
+      });
+
+      it('should return all expected properties', function() {
+        expect(creature).to.have.all.keys('name', 'locale',
+                                          'ability', 'defeatedBy');
       });
 
     });
 
+    // this is weird, since it's the saame thing as testing the Creature class?
     describe('getHelper', function() {
 
       var h = new Heartless();
@@ -117,6 +116,60 @@ var tester = function() {
 
     });
 
+
+    describe('getPackage', function() {
+
+      var h = new Heartless();
+
+      var pkge = h.getPackage();
+
+      it('should return an object', function() {
+        expect(typeof(pkge)).to.equal('object');
+      });
+
+      it('should return all expected properties', function() {
+        expect(pkge).to.have.all.keys('antagonist', 'helper');
+      });
+
+      it('the helper should have same ability as the antagonist\'s defeatedBy', function() {
+        expect(pkge.helper.ability).to.equal(pkge.antagonist.defeatedBy);
+      });
+
+    });
+
+    // these seem fairly stupid at the moment
+    // will they be useful as time goes on, as a sanity check?
+    // or am I testing the value of 0?
+    describe('getPackages', function() {
+
+      var h = new Heartless();
+
+      var packages5 = h.getPackages(5);
+      var packages1 = h.getPackages(1);
+      var packages0 = h.getPackages(0);
+      var packagesnull = h.getPackages();
+
+      it('should return an array', function() {
+        expect(Array.isArray(packages5)).to.equal(true);
+      });
+
+      it('should return 5 when we ask for 5', function() {
+        expect(packages5.length).to.equal(5);
+      });
+
+      it('should return 1 when we ask for 1', function() {
+        expect(packages1.length).to.equal(1);
+      });
+
+      it('should return 0 when we ask for 0', function() {
+        expect(packages0.length).to.equal(0);
+      });
+
+      it('should return 0 when we don\'t pass a param', function() {
+        expect(packagesnull.length).to.equal(0);
+      });
+
+    });
 
   });
 

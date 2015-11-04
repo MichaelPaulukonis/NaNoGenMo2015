@@ -4,14 +4,14 @@
   "description": "generate 50K words in November, or bust!",
   "main": "index.js",
   "dependencies": {
-    "chai": "^3.4.0"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "chai": "^3.4.0",
     "mocha": "^2.3.3"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha heartless/tests/test.js"
   },
   "repository": {
     "type": "git",
