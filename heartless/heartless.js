@@ -24,7 +24,7 @@
  [A Full and Complete Reckoning of Uncommon Mythical and Monstrous Creatures](https://github.com/dariusk/NaNoGenMo-2014/issues/120)
  */
 
-
+"use strict";
 
 var Heartless = function() {
 
@@ -57,30 +57,32 @@ var Heartless = function() {
    1) function in the antogonist locale and
    2) defeat the antagonist
    */
-  function Creature(name, locale, ability, defeatedBy) {
+  function Creature(config) { // name, locale, ability, defeatedBy) {
 
     if(!(this instanceof Creature)) {
       return new Creature();
     }
 
-    if (name === undefined) { name = 'name'; }
-    if (locale === undefined) { locale = 'locale'; }
-    if (ability === undefined) { ability = 'ability'; }
-    if (defeatedBy === undefined) { defeatedBy = 'defeatedBy'; }
+    if (config === undefined) { config = {}; }
 
-    this.name = name;
-    this.locale = locale;
-    this.ability = ability;
-    this.defeatedBy = defeatedBy;
+    if (config.name === undefined) { config.name = 'name'; }
+    if (config.locale === undefined) { config.locale = 'locale'; }
+    if (config.ability === undefined) { config.ability = 'ability'; }
+    if (config.defeatedBy === undefined) { config.defeatedBy = 'defeatedBy'; }
+
+    this.name = config.name;
+    this.locale = config.locale;
+    this.ability = config.ability;
+    this.defeatedBy = config.defeatedBy;
 
   };
 
   this.Creature = Creature;
 
-  this.getHelper = function(name, locale, ability, defeatedBy) {
+  this.getHelper = function(config) {
 
     // TODO: if nothing passed in, populate randomly
-    return new Creature(name, locale, ability, defeatedBy);
+    return new Creature(config);
   };
 
   this.getHelpers = function(n) {
@@ -91,10 +93,13 @@ var Heartless = function() {
     // place-holder until a real random system shows up
     // in which case, we'd be calling getHelper
     for(var i = 0; i < n; i++) {
-      helpers.push(new Creature(`${dc.name}-${i+1}`,
-                                `${dc.locale}-${i+1}`,
-                                `${dc.ability}-${i+1}`,
-                                `${dc.defeatedBy}-${i+1}`));
+      let config = {
+        name:       `${dc.name}-${i+1}`,
+        locale:     `${dc.locale}-${i+1}`,
+        ability:    `${dc.ability}-${i+1}`,
+        defeatedBy: `${dc.defeatedBy}-${i+1}`
+      };
+      helpers.push(new Creature(config));
     }
 
     return helpers;
