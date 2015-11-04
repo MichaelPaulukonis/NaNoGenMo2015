@@ -1,34 +1,52 @@
 /*
- So. Plan of action
- THESE ARE ALL TO START THINGS OFF
- Main body of story is static
- call to function to get n-helpers
- helper includes helper, hero encounter-locale,
- helper ability, helper antagonist, antagonist method of defeat
- which may just come from ability, or should relate to it
- to begin, these will be stupidly static, with incremented numbers.
- concentrate on getting a dumb skeleton
- and, hey, maybe some tests, because that always trips you up
- when you least expect it and gee these don't really _need_ test do they?
- anyhow.
- Getting this "working" should help solidify the ideas of what properties
- the helper "object" should have.
- Then look into auto-generation of helpers and associated landscape
- the latter is an issu,e because we probably don't want 11 helpers in a row
- that are involved with crossing rivers or adjacent bodies of water.
- or maybe that's a secondary concern....
- I'm _thinking_ that some sort of knoweldge/rule system is required
- to deal with abilities, locales, antagonists, etc.
- but maybe it doesn't have to me even that smart.
- see 2014's example of ....
- [A Full and Complete Reckoning of Uncommon Mythical and Monstrous Creatures](https://github.com/dariusk/NaNoGenMo-2014/issues/120)
+ So, this tests stuff. Or something.
+ Who knows.
+
+ TODO: build creature generator
+ need to create unique beasts
+ probably adjective with one of the beasts
+ or something else
+ the hearltess tale will have to check that it is unique, and then re-query the generator
+ if after 2 tries it fails, give one a number....
+ [THIS WAY LIES MADNESS]
+
+ TODO: generate powers
+ TODO: generate locales
+
+ words/adjective + words/adverb lists look useful
+
+ geography things are too specific.
+ will need some sort of list plus adj modifiers
+
+
 */
 
+// these were ganked from dariusk's corpora project
+var animals = require('./animals')['animals'];
+var greekMonsters = require('./greek_monsters')['greek_monsters'];
+var monsters = require('./monsters')['names'];
 
+var beasts = animals.concat(greekMonsters).concat(monsters);
 
-var heartless = function() {
+//console.log(beasts);
 
+var pick = function(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+};
+
+var doubleTrouble = function() {
+
+  var c1 = pick(beasts),
+      c2 = pick(beasts);
+
+  return `${c1}-${c2}`;
 
 };
 
-module.exports = heartless;
+(function test() {
+
+  for (var i = 0; i < 20; i++) {
+    console.log(doubleTrouble());
+  }
+
+})();
