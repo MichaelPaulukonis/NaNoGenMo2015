@@ -19,12 +19,13 @@
  will need some sort of list plus adj modifiers
 
 
-*/
+ */
 
 // these were ganked from dariusk's corpora project
 var animals = require('./animals')['animals'];
 var greekMonsters = require('./greek_monsters')['greek_monsters'];
 var monsters = require('./monsters')['names'];
+var adjectives = require('./wordbank')['adjectives'];
 
 var beasts = animals.concat(greekMonsters).concat(monsters);
 
@@ -34,19 +35,40 @@ var pick = function(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
-var doubleTrouble = function() {
+// return true or false
+// 50-50 chance (unless override)
+var coinflip = function(chance) {
+  if (!chance) { chance = 0.5; }
+  return (Math.random() < chance);
+};
+
+var doubleTrouble = function(sentiment) {
+
+  if (sentiment === undefined) { sentiment = 'positive'; }
 
   var c1 = pick(beasts),
       c2 = pick(beasts);
 
-  return `${c1}-${c2}`;
+  var name = '';
+
+  if (coinflip(0.2)) {
+    var adj = (sentiment === 'positive' ? 'positive' : 'negative');
+    name = pick(adjectives[adj]) + ' ' + c2;
+  } else {
+    name = `${c1}-${c2}`;
+  }
+
+  return name;
 
 };
 
 (function test() {
 
+  var h = new require('./heartless')();
+
   for (var i = 0; i < 20; i++) {
-    console.log(doubleTrouble());
+    // console.log(doubleTrouble('negative'));
+    console.log(h.getPackage());
   }
 
 })();

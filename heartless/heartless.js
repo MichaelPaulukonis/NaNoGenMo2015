@@ -35,9 +35,20 @@ var Heartless = function() {
   var useRandom = true;
 
   // temporary use
-  function randomString(length) {
+  var randomString = function(length) {
     return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
-  }
+  };
+
+  var pick = function(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  };
+
+  // return true or false
+  // 50-50 chance (unless override)
+  var coinflip = function(chance) {
+    if (!chance) { chance = 0.5; }
+    return (Math.random() < chance);
+  };
 
   /*
    consists of a helper and an antagonist
@@ -49,8 +60,11 @@ var Heartless = function() {
    */
   this.getPackage = function() {
 
-    var antagonist = this.getHelper();
-    var helper = this.getHelper({ ability: antagonist.defeatedBy });
+    var antagonist = this.getHelper({ sentiment: 'negative' });
+
+    var helper = this.getHelper({ ability: antagonist.defeatedBy,
+                                  sentiment: 'positive',
+                                  defeatedBy: 'nothing' });
 
     return {
       antagonist: antagonist,
@@ -89,10 +103,11 @@ var Heartless = function() {
     if (config === undefined) { config = {}; }
 
     if (useRandom) {
-      if (config.name === undefined) { config.name = randomString(10); }
-      if (config.locale === undefined) { config.locale = randomString(10); }
-      if (config.ability === undefined) { config.ability = randomString(10); }
-      if (config.defeatedBy === undefined) { config.defeatedBy = randomString(10); }
+      if (config.sentiment === undefined) { config.sentiment = 'positive'; }
+      if (config.name === undefined) { config.name = this.nameGen(config.sentiment); } //randomString(10); }
+      if (config.locale === undefined) { config.locale = this.localeGen(); } //randomString(10); }
+      if (config.ability === undefined) { config.ability = this.abilityGen(); } //randomString(10); }
+      if (config.defeatedBy === undefined) { config.defeatedBy = this.abilityGen(); } //randomString(10); }
     } else {
       if (config.name === undefined) { config.name = 'name'; }
       if (config.locale === undefined) { config.locale = 'locale'; }
@@ -106,6 +121,43 @@ var Heartless = function() {
     this.defeatedBy = config.defeatedBy;
 
   }
+
+  var animals = require('./animals')['animals'];
+  var greekMonsters = require('./greek_monsters')['greek_monsters'];
+  var monsters = require('./monsters')['names'];
+  var adjectives = require('./wordbank')['adjectives'];
+  Creature.prototype.beasts = animals.concat(greekMonsters).concat(monsters);
+  Creature.prototype.locales = { 'nouns': require('./wordbank')['nouns']['locales'],
+                                 'adjectives': require('./wordbank')['adjectives']['locales'] };
+  Creature.prototype.abilities = require('./wordbank')['abilities'];
+
+  Creature.prototype.abilityGen = function() {
+    return pick(this.abilities);
+  };
+
+  Creature.prototype.localeGen = function() {
+    return pick(this.locales.adjectives) + ' ' + pick(this.locales.nouns);
+  };
+
+  Creature.prototype.nameGen = function(sentiment) {
+
+    if (sentiment === undefined) { sentiment = 'positive'; }
+
+    var c1 = pick(this.beasts),
+        c2 = pick(this.beasts);
+
+    var name = '';
+
+    if (coinflip(0.2)) {
+      var adj = (sentiment === 'positive' ? 'positive' : 'negative');
+      name = pick(adjectives[adj]) + ' ' + c2;
+    } else {
+      name = `${c1}-${c2}`;
+    }
+
+    return name;
+
+  };
 
   this.Creature = Creature;
 
