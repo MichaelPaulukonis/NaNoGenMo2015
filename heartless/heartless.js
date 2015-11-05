@@ -122,6 +122,7 @@ var Heartless = function() {
 
   }
 
+  var wordbank = require('./wordbank');
   var animals = require('./animals')['animals'];
   var greekMonsters = require('./greek_monsters')['greek_monsters'];
   var monsters = require('./monsters')['names'];
@@ -129,7 +130,7 @@ var Heartless = function() {
   Creature.prototype.beasts = animals.concat(greekMonsters).concat(monsters);
   Creature.prototype.locales = { 'nouns': require('./wordbank')['nouns']['locales'],
                                  'adjectives': require('./wordbank')['adjectives']['locales'] };
-  Creature.prototype.abilities = require('./wordbank')['abilities'];
+  Creature.prototype.abilities = wordbank.abilities1.concat(wordbank.abilities2);
 
   Creature.prototype.abilityGen = function() {
     return pick(this.abilities);
