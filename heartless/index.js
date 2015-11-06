@@ -66,9 +66,16 @@ var doubleTrouble = function(sentiment) {
 
   var h = new require('./heartless')();
 
-  for (var i = 0; i < 20; i++) {
-    // console.log(doubleTrouble('negative'));
-    console.log(h.getPackage());
-  }
+  var twains = h.getTwains(50);
+
+  // var m = h.getMeetings(twains);
+  // var ds = h.describeSetup(twains);
+  // var hs = h.handleSituation(twains);
+
+  // console.log(m, ds, hs);
+
+  var t = h.tellit(twains);
+
+  console.log(t);
 
 })();

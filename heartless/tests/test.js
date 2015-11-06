@@ -14,16 +14,16 @@ var tester = function() {
 
       var h = new Heartless();
 
-      it('should have a getIntro() method', function() {
-        expect(typeof(h.getIntro)).to.equal('function');
+      it('should have a getTale() method', function() {
+        expect(typeof(h.getTale)).to.equal('function');
       });
 
-      it('should have a getPackage() method', function() {
-        expect(typeof(h.getPackage)).to.equal('function');
+      it('should have a getTwain() method', function() {
+        expect(typeof(h.getTwain)).to.equal('function');
       });
 
-      it('should have a getPackages(n) method', function() {
-        expect(typeof(h.getPackages)).to.equal('function');
+      it('should have a getTwains(n) method', function() {
+        expect(typeof(h.getTwains)).to.equal('function');
       });
 
       it('should have a getHelper() method', function() {
@@ -117,11 +117,11 @@ var tester = function() {
     });
 
 
-    describe('getPackage', function() {
+    describe('getTwain', function() {
 
       var h = new Heartless();
 
-      var pkge = h.getPackage();
+      var pkge = h.getTwain();
 
       it('should return an object', function() {
         expect(typeof(pkge)).to.equal('object');
@@ -140,33 +140,33 @@ var tester = function() {
     // these seem fairly stupid at the moment
     // will they be useful as time goes on, as a sanity check?
     // or am I testing the value of 0?
-    describe('getPackages', function() {
+    describe('getTwains', function() {
 
       var h = new Heartless();
 
-      var packages5 = h.getPackages(5);
-      var packages1 = h.getPackages(1);
-      var packages0 = h.getPackages(0);
-      var packagesnull = h.getPackages();
+      var twains5 = h.getTwains(5);
+      var twains1 = h.getTwains(1);
+      var twains0 = h.getTwains(0);
+      var twainsnull = h.getTwains();
 
       it('should return an array', function() {
-        expect(Array.isArray(packages5)).to.equal(true);
+        expect(Array.isArray(twains5)).to.equal(true);
       });
 
       it('should return 5 when we ask for 5', function() {
-        expect(packages5.length).to.equal(5);
+        expect(twains5.length).to.equal(5);
       });
 
       it('should return 1 when we ask for 1', function() {
-        expect(packages1.length).to.equal(1);
+        expect(twains1.length).to.equal(1);
       });
 
       it('should return 0 when we ask for 0', function() {
-        expect(packages0.length).to.equal(0);
+        expect(twains0.length).to.equal(0);
       });
 
       it('should return 0 when we don\'t pass a param', function() {
-        expect(packagesnull.length).to.equal(0);
+        expect(twainsnull.length).to.equal(0);
       });
 
     });
