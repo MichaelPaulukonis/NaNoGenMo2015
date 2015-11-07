@@ -240,6 +240,7 @@ var Heartless = function() {
         tLength = twains.length;
 
     var finalHelper = twains[tLength-1].helper.name;
+    var finalAntag = twains[tLength-1].antagonist.name;
 
     desc.push(`The prince rode to the ${twains[0].antagonist.locale}, where the ${finalHelper} jumped to attention.`);
 
@@ -256,7 +257,7 @@ var Heartless = function() {
       }
     }
 
-    desc.push(`The ${finalHelper} gave the prince the egg, and told him to squeeze it. When he did, the giant screamed. The ${finalHelper} told him to squeeze it again, and the giant promised anything if he would spare his life. The prince told him to change his brothers and their brides back to life, and the giant did so. Then the prince squeezed the egg into two and went home with the giant's captive princess as his bride; accompanying him were his brothers and their brides, and the king rejoiced.`);
+    desc.push(`The ${finalHelper} plucked the egg from the nest of the ${finalAntag}, gave it to the prince, and told him to squeeze it. When he did, the giant screamed. The ${finalHelper} told him to squeeze it again, and the giant promised anything if he would spare his life. The prince told him to change his brothers and their brides back to life, and the giant did so. Then the prince squeezed the egg into two and went home with the giant's captive princess as his bride; accompanying him were his brothers and their brides, and the king rejoiced.`);
 
     return desc.join(' ');
   };
@@ -271,7 +272,7 @@ When they did not return, the king, their father, tried to prevent their brother
 
 {{HELPERINTRO}}
 
-The princess was very beautiful and the prince wanted to know how he could kill the giant and set her and his family free. The princess said that there was no way, as the giant did not keep his heart in his body and therefore could not be killed. When the giant returned, the princess hid the prince, and asked the giant where he kept his heart. He told her that it was under the door sill. The prince and princess dug there the next day and found no heart. The princess strewed flowers over the door sill, and when the giant returned, told him that it was because his heart lay there. The giant admitted it wasn't there and told her it was in the cupboard. As before, the princess and the prince searched, to no avail; once again, the princess strewed garlands of flowers on the cupboard and told the giant it was because his heart was there. Thereupon the giant revealed to her that, in fact, {{DESCRIBESETUP}}
+The princess was very beautiful and the prince wanted to know how he could kill the giant and set her and his family free. The princess said that there was no way, as the giant did not keep his heart in his body and therefore could not be killed. When the giant returned, the princess hid the prince, and asked the giant where he kept his heart. He told her that it was under the door sill. The prince and princess dug there the next day and found no heart. The princess strewed flowers over the door sill, and when the giant returned, told him that it was because his heart lay there. The giant admitted it wasn't there and told her it was in the cupboard. As before, the princess and the prince searched, to no avail; once again, the princess strewed garlands of flowers on the cupboard and told the giant it was because his heart was there. {{DESCRIBESETUP}}
 
 {{FINALE}}`;
 

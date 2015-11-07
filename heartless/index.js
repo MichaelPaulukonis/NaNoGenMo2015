@@ -66,7 +66,7 @@ var doubleTrouble = function(sentiment) {
 
   var h = new require('./heartless')();
 
-  var twains = h.getTwains(50);
+  var twains = h.getTwains(5);
 
   // var m = h.getMeetings(twains);
   // var ds = h.describeSetup(twains);
