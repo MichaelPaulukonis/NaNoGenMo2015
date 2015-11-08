@@ -82,3 +82,17 @@ Because I want to understand how to work this: https://github.com/mewo2/vocab-ma
 
 # Gutenberg processing
 I downloaded the DVD, and will be playing with some parsing, as well....
+
+
+# simple story creator
+something I poked at last year, but didn't continue with.
+Very simple, and I followed the much-more-complex Proppian generator down it's endless trails.
+However, I had made a note that putting in some characters from fan-fiction (or whatnot) could be interesting.
+I'd like to pursue that again, maybe.
+See how the effect actually plays out with the super-miniatures.
+
+https://github.com/MichaelPaulukonis/NaNoGenMo2014/tree/cb653fbb578b907bc83b9502571cd615f70cc4e0/SimpleStoryCreator
+
+TODO: update the orginal notes to reflect the original repo I was cloning
+
+https://github.com/anihex/SimpleStoryCreator
