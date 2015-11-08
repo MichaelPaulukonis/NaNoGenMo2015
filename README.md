@@ -62,3 +62,23 @@ I'm also still interested in Fairy Tales (see 2014 and the resultant slightly-mo
 In particular, a portion of some tales where the hero befriends several characters/creatures [despite (his) haste or advice] which then end up helping him get through a nested problem. Eg, the giant's heart is kept in a box at the top of a tower on an island in a lake past the thorns, past a guard-dragon, etc etc. I'd like to be able to generate a n-level deep problem with associated helper characters -- each of whom would have to have an attribute matched to solving the problem (bear kills dragon, eagle flies hero over lake, etc.). This would also involve some minimal conversations.
 
 See implementation in [Heartless](https://github.com/MichaelPaulukonis/NaNoGenMo2015/tree/master/heartless). Pure templating as of 2015.11.07. Not as thrilling as I had hoped. But I had hoped for some attribute matching, instead of pure randomness-from-dumb-lists.
+
+# nltk and word2vec (link-dump)
+Okay, I'm going to be playing with some Python stuff again.
+
+Because I want to understand how to work this: https://github.com/mewo2/vocab-mashup
+
+ - https://github.com/dariusk/NaNoGenMo-2015/issues/72#issuecomment-154840835
+ - https://www.kaggle.com/c/word2vec-nlp-tutorial/details/part-1-for-beginners-bag-of-words
+ - https://www.kaggle.com/c/word2vec-nlp-tutorial/details/part-2-word-vectors
+ - http://www.nltk.org/data.html
+ - https://github.com/karpathy/char-rnn
+ - http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+ - http://alexminnaar.com/word2vec-tutorial-part-i-the-skip-gram-model.html
+ - https://code.google.com/p/word2vec/
+ - https://radimrehurek.com/gensim/models/word2vec.html
+ - https://medium.com/@klintcho/doc2vec-tutorial-using-gensim-ab3ac03d3a1
+ - https://radimrehurek.com/gensim/models/doc2vec.html
+
+# Gutenberg processing
+I downloaded the DVD, and will be playing with some parsing, as well....

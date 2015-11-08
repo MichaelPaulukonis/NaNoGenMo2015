@@ -11,6 +11,21 @@ In particular, a portion of some tales where the hero befriends several characte
 [rough draft](https://gist.github.com/MichaelPaulukonis/3af142f787db2908d3f0)
 
 
+## TODOs
+
+ 1. Make some elements a little more random. For some funs.
+ 1. "Giant", for instance, could be swapped.
+ 1. Clean up existing grammar -- use proper [indefinite articles](https://github.com/MichaelPaulukonis/solanasbot03/blob/master/lib/indefinite.js)
+ 1. Make sure sentences make sense - there's some screwy stuff at end of meetups
+ 1. better meetups (could involve conversations?)
+ 1. better "battles"
+ 1. some pulls from concept-net?
+ 1. matchup of abilities and environs
+ 1. environs descriptions = are already better, I think, but... better still.
+ 1. eh. Maybe this is all a dead-end
+ 1. should this "just" be intergrated into [Malepropp](http://github.com/MichaelPaulukonis/malepropp), instead?
+ 1. Look at wikipedia's variations (see below)
+
 ## examples
 
 
@@ -66,7 +81,9 @@ For example (and maybe this is the canonical example):
 > accompanying him were his brothers and their brides, and the king
 > rejoiced.
 
-There are other examples listed unt [See Also](https://en.wikipedia.org/wiki/The_Giant_Who_Had_No_Heart_in_His_Body#See_also).
+There are other examples listed under wikipedia's [See Also](https://en.wikipedia.org/wiki/The_Giant_Who_Had_No_Heart_in_His_Body#See_also).
+
+Intermixing these could provide some better variation. Not much, but a semi-palateable amount?
 
 for example (and probably one I saw last year, whilst poking hard at Russian Wonder Tales):
 
