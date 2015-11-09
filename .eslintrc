@@ -1,8 +1,11 @@
 {
+    "extends": "./node_modules/coding-standard/.eslintrc",
+
     "rules": {
         "indent": [
             2,
-            2
+            2,
+            {"VariableDeclarator": 2}
         ],
         "quotes": [
             2,

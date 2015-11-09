@@ -32,12 +32,12 @@ var Heartless = function() {
     return new Heartless();
   }
 
-  var useRandom = true;
+  var indefinite = require('./indefinite'),
+      useRandom = true,
+      _ = require('underscore');
 
-  // temporary use
-  var randomString = function(length) {
-    return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
-  };
+  // TODO: look at implementation in https://github.com/MichaelPaulukonis/solanasbot03/blob/master/sentence.js
+  var a = function(word) { return indefinite(word) + ' ' + word; };
 
   var pick = function(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -104,10 +104,10 @@ var Heartless = function() {
 
     if (useRandom) {
       if (config.sentiment === undefined) { config.sentiment = 'positive'; }
-      if (config.name === undefined) { config.name = this.nameGen(config.sentiment); } //randomString(10); }
-      if (config.locale === undefined) { config.locale = this.localeGen(); } //randomString(10); }
-      if (config.ability === undefined) { config.ability = this.abilityGen(); } //randomString(10); }
-      if (config.defeatedBy === undefined) { config.defeatedBy = this.abilityGen(); } //randomString(10); }
+      if (config.name === undefined) { config.name = this.nameGen(config.sentiment); }
+      if (config.locale === undefined) { config.locale = this.localeGen(); }
+      if (config.ability === undefined) { config.ability = this.abilityGen(); }
+      if (config.defeatedBy === undefined) { config.defeatedBy = this.abilityGen(); }
     } else {
       if (config.name === undefined) { config.name = 'name'; }
       if (config.locale === undefined) { config.locale = 'locale'; }
