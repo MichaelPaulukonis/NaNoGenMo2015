@@ -96,3 +96,44 @@ https://github.com/MichaelPaulukonis/NaNoGenMo2014/tree/cb653fbb578b907bc83b9502
 TODO: update the orginal notes to reflect the original repo I was cloning
 
 https://github.com/anihex/SimpleStoryCreator
+
+
+# Summarization
+ - https://en.wikipedia.org/wiki/Automatic_summarization
+ - [http://libots.sourceforge.net/](Open Text Summarizer)
+ - http://textcompactor.com/
+ - http://thetokenizer.com/2013/04/28/build-your-own-summary-tool/
+ - https://github.com/topliceanu/text-summarization
+ - http://textsummarization.net/text-summarization-api-document
+ - https://github.com/pdehaan/summarizer
+  - https://www.npmjs.com/package/summarizer
+ - http://www.splitbrain.org/services/ots
+ - https://github.com/jbrooksuk/node-summary
+  - https://www.npmjs.com/package/node-summary
+ - http://textanalysisonline.com/
+ - http://textminingonline.com/getting-started-with-the-automatic-text-summarization-api-on-mashape
+
+
+# ConceptNet
+ - http://conceptnet5.media.mit.edu/web/c/en/surf_net
+ - Matt Fister's [wordtools](https://github.com/mattfister/wordtools) has an offline, reduced version of ConceptNet in .json file, with a Python front-end. It's a very simple front end, and could be interesting to port to Node.
+ - See it in action in his [NaNoGenMo2015](https://github.com/mattfister/nanogenmo2015) entry
+
+```
+pip install nltk
+python conceptnet_searcher.py dragon
+```
+
+
+duplicate the word-hash in javascript:
+
+```
+var stringHash = function(word) {
+ var sum = 0;
+   for (var i = 0; i < word.length; i++) {
+     sum += i*word.charCodeAt(i);
+   }
+ return sum % 50; // where 50 := the number of files we are dealing with
+ // hard-coded for this example only
+}
+```

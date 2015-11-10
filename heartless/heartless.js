@@ -198,13 +198,16 @@ var Heartless = function() {
         tLength = twains.length;
     meets.push('On the way, ');
 
-    // skip the last one - handled separately
+    // reason for helping
+    // then can be recounted later, as well.
+    // would be nice if... you know, things made "sense"
     for (var i = 0; i < tLength-1; i++) {
       meets.push(`he helped a ${twains[i].helper.name}, `);
     }
 
     var finalMeet = twains[tLength-1].helper.name;
-    var closeText = 'The {{WOLF}} let the prince ride on him, instead, and showed him the giant\'s castle, telling him to go inside. The prince was reluctant fearing the wrath of the giant, but the {{WOLF}} consoled him. The {{WOLF}} persuaded the prince to enter the castle for there he would encounter not the giant, but the princess the giant kept prisoner.'.replace(/{{WOLF}}/ig, finalMeet);
+
+    var closeText = 'and gave a starving {{WOLF}} his horse to eat. The {{WOLF}} let the prince ride on him, instead, and showed him the giant\'s castle, telling him to go inside. The prince was reluctant fearing the wrath of the giant, but the {{WOLF}} consoled him. The {{WOLF}} persuaded the prince to enter the castle for there he would encounter not the giant, but the princess the giant kept prisoner.'.replace(/{{WOLF}}/ig, finalMeet);
 
     meets.push(closeText);
 
@@ -249,12 +252,14 @@ var Heartless = function() {
           helper = twains[i].helper.name,
           ability = twains[i].helper.ability;
 
+      if (i > 0) {
+        desc.push(`The prince rode on to the ${twains[i].antagonist.locale}, where he was menaced by a ${antag}.`);
+      }
+
+      // menacing from antagonist, or other such encounter
       desc.push(`The prince called on the ${helper} to defeat the ${antag}.`);
       desc.push(`The ${helper} defeated the ${antag} by using its ${ability}.`);
 
-      if (i < tLength - 1) {
-        desc.push(`The prince rode on to the ${twains[i+1].antagonist.locale}.`);
-      }
     }
 
     desc.push(`The ${finalHelper} plucked the egg from the nest of the ${finalAntag}, gave it to the prince, and told him to squeeze it. When he did, the giant screamed. The ${finalHelper} told him to squeeze it again, and the giant promised anything if he would spare his life. The prince told him to change his brothers and their brides back to life, and the giant did so. Then the prince squeezed the egg into two and went home with the giant's captive princess as his bride; accompanying him were his brothers and their brides, and the king rejoiced.`);
