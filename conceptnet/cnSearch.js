@@ -7,7 +7,7 @@ var search = function(){
   // where 50 := the number of files we are dealing with
   // hard-coded for this example only
   var fileCount = 50;
-
+  var fs = require('fs');
 
   var stringHash = function(word) {
     var sum = 0;
@@ -21,12 +21,13 @@ var search = function(){
 
     var r = {};
 
-    for (var i = 0; i < rels.length; i++) {
-      var node = rels[i];
-      if (!r[node[0]]) { r[node[0]] = []; }
-      r[node[0]].push(node[1]);
+    if (rels != undefined) {
+      for (var i = 0; i < rels.length; i++) {
+        var node = rels[i];
+        if (!r[node[0]]) { r[node[0]] = []; }
+        r[node[0]].push(node[1]);
+      }
     }
-
     return r;
 
   };
@@ -37,12 +38,19 @@ var search = function(){
 
     concept = concept.replace(/\s/g, '_').toLowerCase();
 
-    var filename = `./conceptnetreduced/conceptnet_reduced_en_${stringHash(concept)}.json`;
+    // TODO: find relative path
+    // since we're not doing a require anymore....
+    var filename = `d:/projects/nanogenmo2015/conceptnet/conceptnetreduced/conceptnet_reduced_en_${stringHash(concept)}.json`;
+    // var filename = `./conceptnetreduced/conceptnet_reduced_en_${stringHash(concept)}.json`;
+    console.log(filename);
 
-    var cnjson = require(filename);
-
-    var rels = [];
-    if ( cnjson[concept] ) { rels = cnjson[concept]; }
+    var rels = JSON.parse(fs.readFileSync(filename, 'utf8'))[concept];
+    // require chaches everything
+    // so ALL OF THESE JSON FILES GET LOADED INTO MEMORY
+    // which, on my machine at least,
+    // isn't large enough. SO NO REQUIRE
+    // var rels = require(filename)[concept];
+    // delete require.cache[require.resolve(filename)];
 
     return arrayToJson(rels);
 
@@ -53,11 +61,3 @@ var search = function(){
 }();
 
 module.exports = search;
-
-// console.log(process.argv);
-
-// var concept = process.argv.slice(2)[0];
-
-// var rels = search(concept);
-
-// console.log(rels);
