@@ -207,7 +207,9 @@ var Heartless = function() {
 
     var finalMeet = twains[tLength-1].helper.name;
 
-    var closeText = 'and gave a starving {{WOLF}} his horse to eat. The {{WOLF}} let the {{PRINCE}} ride on him, instead, and showed him the {{GIANT}}\'s castle, telling him to go inside. The {{PRINCE}} was reluctant fearing the wrath of the {{GIANT}}, but the {{WOLF}} consoled him. The {{WOLF}} persuaded the {{PRINCE}} to enter the castle for there he would encounter not the {{GIANT}}, but the princess the {{GIANT}} kept prisoner.'.replace(/{{WOLF}}/ig, finalMeet);
+    var closeText = ' gave a starving {{WOLF}} his horse to eat. The {{WOLF}} let the {{PRINCE}} ride on him, instead, and showed him the {{GIANT}}\'s castle, telling him to go inside. The {{PRINCE}} was reluctant fearing the wrath of the {{GIANT}}, but the {{WOLF}} consoled him. The {{WOLF}} persuaded the {{PRINCE}} to enter the castle for there he would encounter not the {{GIANT}}, but the princess the {{GIANT}} kept prisoner.'.replace(/{{WOLF}}/ig, finalMeet);
+
+    closeText = ((tLength === 1) ? 'he' : 'and') + closeText;
 
     meets.push(closeText);
 
@@ -245,16 +247,14 @@ var Heartless = function() {
     var finalHelper = twains[tLength-1].helper.name;
     var finalAntag = twains[tLength-1].antagonist.name;
 
-    desc.push(`The {{PRINCE}} rode to the ${twains[0].antagonist.locale}, where the ${finalHelper} jumped to attention.`);
-
     for (var i = 0; i < tLength; i++) {
       var antag = twains[i].antagonist.name,
           helper = twains[i].helper.name,
           ability = twains[i].helper.ability;
 
-      if (i > 0) {
-        desc.push(`The {{PRINCE}} rode on to the ${twains[i].antagonist.locale}, where he was menaced by a ${antag}.`);
-      }
+      var menace = `The {{PRINCE}} rode {{ON}}to the ${twains[i].antagonist.locale}, where he was menaced by a ${antag}.`
+      .replace(/{{ON}}/, (i === 1) ? 'on ' : '');
+      desc.push(menace);
 
       // menacing from antagonist, or other such encounter
       desc.push(`The {{PRINCE}} called on the ${helper} to defeat the ${antag}.`);
@@ -271,7 +271,7 @@ var Heartless = function() {
   this.getTale = function() {
 
     var tale = `
-A king had seven sons, and when the other six went off to find brides, he kept the youngest with him because he could not bear to be parted from them all. They were supposed to bring back a bride for him, as well, but they found a king with six daughters and wooed them, forgetting their brother. But when they returned, they passed too close to a {{GIANT}}'s castle, and he turned them all, both princes and princesses, to stone in a fit of rage.
+There came a king who had seven sons, and when the other six went off to find brides, he kept the youngest with him because he could not bear to be parted from them all. They were supposed to bring back a bride for him, as well, but they found a king with six daughters and wooed them, forgetting their brother. But when they returned, they passed too close to a {{GIANT}}'s castle, and he turned them all, both princes and princesses, to stone in a fit of rage.
 
 When they did not return, the king, their father, tried to prevent their brother from following, but he went.
 
@@ -318,7 +318,7 @@ The princess was very beautiful and the {{PRINCE}} wanted to know how he could k
 
     var sadness = `
 
-Eventually, the {{PRINCE}}, who lived a long an happy life, found his happiness slipping from his fingers. In time, his heart became hardened, his rule became corrupt, and he became a {{GIANT}}.
+Eventually, the {{PRINCE}}, who lived a long and happy life, found his happiness slipping from his fingers. In time, his heart became hardened, his rule became corrupt, and he became a {{GIANT}}.
 
 `;
 
@@ -327,14 +327,71 @@ Eventually, the {{PRINCE}}, who lived a long an happy life, found his happiness 
     giant = this.Creature().nameGen('negative');
 
     tale += sadness
-          .replace(/{{GIANT}}/ig, giant)
-          .replace(/{{PRINCE}}/ig, prince);
+      .replace(/{{GIANT}}/ig, giant)
+      .replace(/{{PRINCE}}/ig, prince);
 
     return { tale: tale,
              giant: giant
            };
 
   };
+
+  this.teller = function(config) {
+    if (config === undefined) {
+      config = {
+        twains: [],
+        giantThreat: undefined,
+        giantFuture: undefined,
+        continueTale: false
+      };
+    }
+
+    var giant = config.giantThreat,
+        twains = config.twains,
+        giantFuture = config.giantFuture;
+
+    if (giant === undefined) {
+      giant = (giant === undefined
+               ? this.Creature().nameGen('negative')
+               : giant);
+    }
+
+    var m = this.getMeetings(twains);
+    var ds = this.describeSetup(twains);
+    var hs = this.handleSituation(twains);
+
+    var prince = 'prince';
+
+    var story = this.getTale().replace(/{{HELPERINTRO}}/, m)
+          .replace(/{{DESCRIBESETUP}}/, ds)
+          .replace(/{{FINALE}}/, hs)
+          .replace(/{{GIANT}}/ig, giant)
+          .replace(/{{PRINCE}}/ig, prince);
+
+    if (config.continueTale) {
+      // TODO: implement core of ongoing
+      var sadness = `
+
+Eventually, the {{PRINCE}}, who lived a long an happy life, found his happiness slipping from his fingers. In time, his heart became hardened, his rule became corrupt, and he became a {{FUTUREGIANT}}.
+
+`;
+      if (giantFuture === undefined) {
+        giantFuture = this.Creature().nameGen('negative');
+      }
+
+      story += sadness
+        .replace(/{{FUTUREGIANT}}/ig, giantFuture)
+        .replace(/{{PRINCE}}/ig, prince);
+
+    }
+
+    // TODO: return object of tale and giantFuture as giant...
+
+    return { tale: story,
+             giantFuture: giantFuture
+           };
+  };
+
 
 };
 

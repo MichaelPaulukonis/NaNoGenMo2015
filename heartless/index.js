@@ -18,86 +18,114 @@
  geography things are too specific.
  will need some sort of list plus adj modifiers
 
-
  */
 
-// these were ganked from dariusk's corpora project
-var animals = require('./animals')['animals'];
-var greekMonsters = require('./greek_monsters')['greek_monsters'];
-var monsters = require('./monsters')['names'];
-var adjectives = require('./wordbank')['adjectives'];
 
-var beasts = animals.concat(greekMonsters).concat(monsters);
 
-//console.log(beasts);
+var stuff = function() {
 
-var pick = function(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
+  // these were ganked from dariusk's corpora project
+  var animals = require('./animals')['animals'];
+  var greekMonsters = require('./greek_monsters')['greek_monsters'];
+  var monsters = require('./monsters')['names'];
+  var adjectives = require('./wordbank')['adjectives'];
+
+  var beasts = animals.concat(greekMonsters).concat(monsters);
+
+  //console.log(beasts);
+
+  var pick = function(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  };
+
+  // return true or false
+  // 50-50 chance (unless override)
+  var coinflip = function(chance) {
+    if (!chance) { chance = 0.5; }
+    return (Math.random() < chance);
+  };
+
+  var doubleTrouble = function(sentiment) {
+
+    if (sentiment === undefined) { sentiment = 'positive'; }
+
+    var c1 = pick(beasts),
+        c2 = pick(beasts);
+
+    var name = '';
+
+    if (coinflip(0.2)) {
+      var adj = (sentiment === 'positive' ? 'positive' : 'negative');
+      name = pick(adjectives[adj]) + ' ' + c2;
+    } else {
+      name = `${c1}-${c2}`;
+    }
+
+    return name;
+
+  };
+
 };
 
-// return true or false
-// 50-50 chance (unless override)
-var coinflip = function(chance) {
-  if (!chance) { chance = 0.5; }
-  return (Math.random() < chance);
-};
+var test = function(storyLoops, mintwains, maxtwains) {
 
-var doubleTrouble = function(sentiment) {
+    // generates a random number
+  var random = function(limit){
+    var num = Math.floor(Math.random() * limit);
+    return num;
+  };
 
-  if (sentiment === undefined) { sentiment = 'positive'; }
-
-  var c1 = pick(beasts),
-      c2 = pick(beasts);
-
-  var name = '';
-
-  if (coinflip(0.2)) {
-    var adj = (sentiment === 'positive' ? 'positive' : 'negative');
-    name = pick(adjectives[adj]) + ' ' + c2;
-  } else {
-    name = `${c1}-${c2}`;
+  function getRandomInt(min, max) {
+    if (max === undefined) {
+      max = min;
+      min = 1;
+    }
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  return name;
-
-};
-
-(function test() {
-
   var h = new require('./heartless')();
-
-  // var twains = [];
-
-  // var m = h.getMeetings(twains);
-  // var ds = h.describeSetup(twains);
-  // var hs = h.handleSituation(twains);
-
-  // console.log(m, ds, hs);
 
   var novel = [],
       giant = undefined,
       twains = [],
-      og = { giant: undefined };
-
-  // var t = h.tellit(twains);
-
-  var storyLoops = 3;
+      og = {giantFuture: undefined};
 
   for(var i = 0; i < storyLoops; i++) {
-    twains = h.getTwains(8);
-    og = h.ongoing(twains, og.giant);
+    // TODO: random number
+    var twainCount = getRandomInt(mintwains, maxtwains);
+    // console.log(`twains: ${twainCount}`);
+    twains = h.getTwains(twainCount);
+    var continueTale = (i < storyLoops - 1 ? true : false);
+    og = h.teller({twains: twains, giantThreat: og.giantFuture, continueTale: continueTale});
     novel.push(og.tale);
-    // twains = h.getTwains(5);
-    // // console.log(`giant: ${og.giant}`);
-    // og = h.ongoing(twains, og.giant);
-    // novel.push(og.tale);
-    // // console.log(`giant: ${og.giant}`);
-    // var t = h.tellit(twains, og.giant);
-    // novel.push(t);
   }
 
-  var t = h.tellit(h.getTwains(3), og.giant);
-  novel.push(t);
   console.log(novel.join('\n\n'));
 
-})();
+};
+
+
+// TODO: use the inputName as part of the output....
+var defaultOutputName = function(inputName) {
+
+  return 'compare.' + (Math.random() * 0x1000000000).toString(36) + '.txt';
+
+};
+
+
+var program = require('commander');
+
+program
+  .version('0.0.1')
+  .option('-l, --loops [int]', 'number of story loops (0)', 0)
+  .option('--max, --maxtwains [int]', 'maximum number of twains', 5)
+  .option('--min, --mintwains [int]', 'minimum number of twains', 1)
+  // .option('-o, --output [file]', 'output file', defaultOutputName())
+  .parse(process.argv);
+
+// console.log(`loops: ${program.loops} maxTwains: ${program.maxtwains} minTwains: ${program.mintwains}`);
+
+program.mintwains = parseInt(program.mintwains, 10);
+program.maxtwains = parseInt(program.maxtwains, 10);
+
+test(program.loops, program.mintwains, program.maxtwains);

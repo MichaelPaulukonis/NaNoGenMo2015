@@ -4,6 +4,7 @@
   "description": "generate 50K words in November, or bust!",
   "main": "index.js",
   "dependencies": {
+    "commander": "^2.9.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
