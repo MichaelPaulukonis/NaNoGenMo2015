@@ -66,7 +66,7 @@ var doubleTrouble = function(sentiment) {
 
   var h = new require('./heartless')();
 
-  var twains = h.getTwains(8);
+  // var twains = [];
 
   // var m = h.getMeetings(twains);
   // var ds = h.describeSetup(twains);
@@ -74,20 +74,30 @@ var doubleTrouble = function(sentiment) {
 
   // console.log(m, ds, hs);
 
-  var novel = [];
+  var novel = [],
+      giant = undefined,
+      twains = [],
+      og = { giant: undefined };
 
   // var t = h.tellit(twains);
 
-  var og = h.ongoing(twains);
-  novel.push(og.tale);
-  twains = h.getTwains(5);
-  console.log(`giant: ${og.giant}`);
-  og = h.ongoing(twains, og.giant);
-  novel.push(og.tale);
-  console.log(`giant: ${og.giant}`);
-  var t = h.tellit(twains, og.giant);
-  novel.push(t);
+  var storyLoops = 3;
 
-  // console.log(novel.join('\n\n'));
+  for(var i = 0; i < storyLoops; i++) {
+    twains = h.getTwains(8);
+    og = h.ongoing(twains, og.giant);
+    novel.push(og.tale);
+    // twains = h.getTwains(5);
+    // // console.log(`giant: ${og.giant}`);
+    // og = h.ongoing(twains, og.giant);
+    // novel.push(og.tale);
+    // // console.log(`giant: ${og.giant}`);
+    // var t = h.tellit(twains, og.giant);
+    // novel.push(t);
+  }
+
+  var t = h.tellit(h.getTwains(3), og.giant);
+  novel.push(t);
+  console.log(novel.join('\n\n'));
 
 })();

@@ -310,8 +310,6 @@ The princess was very beautiful and the {{PRINCE}} wanted to know how he could k
   // pass in the CURRENT GIANT, as well as the transformation
   this.ongoing = function(twains, giant) {
 
-  console.log(`giant: ${giant}`);
-
     giant = (giant === undefined
              ? this.Creature().nameGen('negative')
              : giant);
@@ -324,8 +322,11 @@ Eventually, the {{PRINCE}}, who lived a long an happy life, found his happiness 
 
 `;
 
-    var tale = this.tellit(twains)
-          + sadness
+    var tale = this.tellit(twains, giant);
+
+    giant = this.Creature().nameGen('negative');
+
+    tale += sadness
           .replace(/{{GIANT}}/ig, giant)
           .replace(/{{PRINCE}}/ig, prince);
 

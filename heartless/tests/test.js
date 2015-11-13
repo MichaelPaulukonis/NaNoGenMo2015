@@ -50,7 +50,6 @@ var tester = function() {
         expect(typeof(h.ongoing)).to.equal('function');
       });
 
-
     });
 
 
