@@ -46,6 +46,10 @@ var tester = function() {
         expect(typeof(h.Creature)).to.equal('function');
       });
 
+      it('should have an ongoing function', function() {
+        expect(typeof(h.ongoing)).to.equal('function');
+      });
+
 
     });
 

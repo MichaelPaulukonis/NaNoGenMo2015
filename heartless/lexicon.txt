@@ -1,0 +1,1546 @@
+{
+  "RelatedTo": [
+    "adapt",
+    "adaption",
+    "condition",
+    "adaptively",
+    "adaptiveness",
+    "adaptly",
+    "adaptorial",
+    "modify",
+    "adaptably",
+    "adaptativeness",
+    "adaptational",
+    "adaptedness",
+    "adaptation",
+    "adaptive",
+    "adaptable",
+    "adaptatively",
+    "adapter",
+    "adaptableness",
+    "adaptional",
+    "adaptness",
+    "external",
+    "susceptibility",
+    "adaptative",
+    "adaptitude"
+  ],
+  "Antonym": [
+    "unadaptability"
+  ],
+  "DerivedFrom": [
+    "ability"
+  ],
+  "IsA": [
+    "ability"
+  ]
+}{}{
+  "InstanceOf": [
+    "film",
+    "film",
+    "album",
+    "game",
+    "album",
+    "musical_work",
+    "musical_work",
+    "studio_album",
+    "musical_work",
+    "album",
+    "musical_work",
+    "write_work",
+    "musical_work",
+    "single",
+    "organisation",
+    "musical_work",
+    "band",
+    "musical_work",
+    "television_show",
+    "film",
+    "film",
+    "album",
+    "book",
+    "single",
+    "musical_work",
+    "musical_work",
+    "album",
+    "activity",
+    "album",
+    "organisation",
+    "album",
+    "television_episode",
+    "band",
+    "musical_work",
+    "single"
+  ],
+  "IsA": [
+    "single_broadcast_tv_show",
+    "action",
+    "band",
+    "game",
+    "book",
+    "single_broadcast_tv_show",
+    "musical_composition",
+    "band",
+    "single_broadcast_tv_show",
+    "album",
+    "consequence"
+  ],
+  "RelatedTo": [
+    "catastrophe",
+    "beforemath",
+    "mow",
+    "follow"
+  ],
+  "Synonym": [
+    "aftereffect",
+    "consequence",
+    "outcome",
+    "rowen"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "math",
+    "meadow",
+    "after",
+    "mow"
+  ],
+  "DerivedFrom": [
+    "math",
+    "after"
+  ]
+}{}{
+  "Antonym": [
+    "synthetic",
+    "synthetic",
+    "contingent",
+    "synthetic",
+    "synthetic"
+  ],
+  "DerivedFrom": [
+    "analysis",
+    "analysis",
+    "analyticity",
+    "analyse",
+    "analysis"
+  ],
+  "HasContext": [
+    "logic",
+    "linguistics",
+    "mathematics"
+  ],
+  "SimilarTo": [
+    "isolate"
+  ],
+  "RelatedTo": [
+    "algebra",
+    "analyse",
+    "analytics",
+    "differential_calculus",
+    "division",
+    "principle",
+    "analysis",
+    "follow",
+    "necessarily",
+    "tautologous",
+    "inflection",
+    "element",
+    "ability"
+  ],
+  "wordnet": [
+    "analysis"
+  ]
+}{}{
+  "InstanceOf": [
+    "album",
+    "musical_work",
+    "album",
+    "musical_work",
+    "musical_work",
+    "book",
+    "software",
+    "write_work",
+    "video_game",
+    "musical_work",
+    "live_album",
+    "single",
+    "album"
+  ],
+  "IsA": [
+    "expectation",
+    "expectation",
+    "computer_game",
+    "hopefulness"
+  ],
+  "RelatedTo": [
+    "expect",
+    "like",
+    "unison",
+    "dirty",
+    "ant",
+    "expect_wait",
+    "anticipate",
+    "eagerness",
+    "prolepsis",
+    "chord",
+    "debt",
+    "interest",
+    "intuitive",
+    "preconception",
+    "dirty_animal",
+    "hasty",
+    "non_harmonic_tone",
+    "notion",
+    "animal",
+    "feel",
+    "impatiently_wait",
+    "anticipatory",
+    "eager_wait",
+    "excitement",
+    "impatiently",
+    "song",
+    "eager",
+    "ketchup",
+    "like_you",
+    "wait",
+    "you",
+    "anticipator",
+    "prepayment"
+  ],
+  "HasProperty": [
+    "receptive_and_open"
+  ],
+  "Antonym": [
+    "intelligent"
+  ],
+  "Synonym": [
+    "expectancy"
+  ]
+}{}{}{}{}{}{}{
+  "InstanceOf": [
+    "musical_work",
+    "band",
+    "magazine",
+    "write_work",
+    "television_station",
+    "organisation",
+    "band",
+    "album",
+    "periodical_literature",
+    "book",
+    "musical_work",
+    "single",
+    "broadcaster",
+    "organisation",
+    "film",
+    "musical_work",
+    "album",
+    "organisation",
+    "write_work"
+  ],
+  "IsA": [
+    "fire",
+    "band",
+    "fire",
+    "burn",
+    "book",
+    "music_single",
+    "shine",
+    "depart",
+    "mark",
+    "mark"
+  ],
+  "RelatedTo": [
+    "angry",
+    "slow",
+    "hellishly",
+    "marijuana",
+    "precedent",
+    "marijuana",
+    "hell",
+    "extremely",
+    "mark",
+    "flame",
+    "take_on",
+    "flare",
+    "exceedingly",
+    "fast",
+    "ablaze",
+    "white_hot"
+  ],
+  "Synonym": [
+    "burn",
+    "high",
+    "lift",
+    "up_there",
+    "light",
+    "stone",
+    "bake",
+    "reef",
+    "burn",
+    "blitz"
+  ],
+  "DerivedFrom": [
+    "glare",
+    "blaze"
+  ]
+}{
+  "DerivedFrom": [
+    "proof",
+    "bulletproof"
+  ],
+  "InstanceOf": [
+    "album",
+    "musical_work",
+    "person",
+    "album",
+    "single",
+    "musical_work",
+    "comic_character",
+    "album",
+    "musical_work",
+    "single",
+    "film",
+    "album",
+    "fictional_character",
+    "musical_work",
+    "album",
+    "musical_work",
+    "live_album",
+    "musical_work",
+    "musical_work",
+    "musical_work",
+    "film",
+    "album",
+    "musical_work",
+    "single"
+  ],
+  "IsA": [
+    "cartoon_character",
+    "proof",
+    "fictitious_character"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "proof",
+    "bullet"
+  ],
+  "RelatedTo": [
+    "sturdy",
+    "infallible",
+    "reliable",
+    "shoot",
+    "withstand",
+    "bullet",
+    "unbreakable"
+  ],
+  "Synonym": [
+    "foolproof"
+  ]
+}{
+  "IsA": [
+    "pouch"
+  ],
+  "RelatedTo": [
+    "cheek",
+    "pouch",
+    "food"
+  ]
+}{
+  "HasPrerequisite": [
+    "water"
+  ],
+  "RelatedTo": [
+    "organism",
+    "pigment",
+    "green",
+    "chloroplast",
+    "plant",
+    "cyanobacteria",
+    "photosynthetic"
+  ],
+  "InstanceOf": [
+    "chemical_compound",
+    "chemical_substance"
+  ],
+  "IsA": [
+    "porphyrin",
+    "organic_matter",
+    "pigment",
+    "plant",
+    "chlorophyll",
+    "chemical",
+    "pigment"
+  ],
+  "Causes": [
+    "plant_to_appear_green"
+  ],
+  "DerivedFrom": [
+    "chloro"
+  ],
+  "HasProperty": [
+    "necessary_for_photosynthesis_in_plant",
+    "green",
+    "bright_infrared_than_it_be_green"
+  ]
+}{}{
+  "InstanceOf": [
+    "musical_work",
+    "write_work",
+    "build",
+    "musical_work",
+    "album",
+    "musical_work",
+    "album",
+    "play",
+    "place",
+    "musical_work",
+    "architectural_structure",
+    "album",
+    "single"
+  ],
+  "AtLocation": [
+    "changning_district",
+    "china",
+    "shanghai"
+  ],
+  "DerivedFrom": [
+    "nine",
+    "cloud"
+  ],
+  "IsA": [
+    "computer_game",
+    "skyscraper"
+  ],
+  "RelatedTo": [
+    "happiness",
+    "on_cloud_nine",
+    "seventh_heaven",
+    "bliss",
+    "elation"
+  ],
+  "Synonym": [
+    "seventh_heaven"
+  ]
+}{
+  "InstanceOf": [
+    "musical_work",
+    "album"
+  ]
+}{
+  "Antonym": [
+    "noncompetitive",
+    "cooperative"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "ive",
+    "compete"
+  ],
+  "RelatedTo": [
+    "capable",
+    "enzyme",
+    "bind",
+    "competition",
+    "compete",
+    "inhibit",
+    "incline"
+  ],
+  "DerivedFrom": [
+    "combativeness",
+    "competitiveness",
+    "compete",
+    "competitiveness"
+  ],
+  "SimilarTo": [
+    "agonistic",
+    "match",
+    "emulous"
+  ]
+}{}{
+  "InstanceOf": [
+    "television_show",
+    "person",
+    "fictional_character",
+    "comic_character"
+  ],
+  "RelatedTo": [
+    "impugn",
+    "contradict",
+    "oppose",
+    "adverse",
+    "frustrate",
+    "contra",
+    "proposition",
+    "contrarily",
+    "counter",
+    "opposite"
+  ],
+  "DerivedFrom": [
+    "contrary",
+    "contrariness"
+  ],
+  "IsA": [
+    "fictitious_character",
+    "opposition",
+    "logical_relation",
+    "cartoon_character"
+  ],
+  "Synonym": [
+    "witherward"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "contraire"
+  ]
+}{}{}{
+  "Antonym": [
+    "undamped"
+  ],
+  "DerivedFrom": [
+    "damp",
+    "damp"
+  ],
+  "InstanceOf": [
+    "food",
+    "organisation",
+    "band"
+  ],
+  "IsA": [
+    "band",
+    "control",
+    "plate",
+    "restraint",
+    "device",
+    "wetness"
+  ],
+  "RelatedTo": [
+    "deject",
+    "water",
+    "wet",
+    "depression",
+    "dissipation",
+    "milk",
+    "attention",
+    "perception",
+    "smoulder",
+    "damp",
+    "humidity",
+    "stabilization",
+    "water",
+    "damp",
+    "moderate",
+    "check",
+    "energy",
+    "yeast",
+    "coordination",
+    "motor",
+    "moist",
+    "moisture",
+    "deficit",
+    "dampen",
+    "application",
+    "damp_ratio",
+    "stupified",
+    "flour",
+    "reignite",
+    "dampness",
+    "oscillation",
+    "salt"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "damp",
+    "er"
+  ],
+  "PartOf": [
+    "chimney"
+  ]
+}{}{
+  "DerivedFrom": [
+    "negativity",
+    "defeatism",
+    "defeat",
+    "frustration"
+  ],
+  "IsA": [
+    "pessimist"
+  ],
+  "RelatedTo": [
+    "defeatism"
+  ]
+}{
+  "RelatedTo": [
+    "opposition",
+    "resist",
+    "defy"
+  ],
+  "SimilarTo": [
+    "insubordinate",
+    "recalcitrant",
+    "obstreperous"
+  ],
+  "Synonym": [
+    "dareful",
+    "rebellious"
+  ],
+  "DerivedFrom": [
+    "defy",
+    "defiance",
+    "disobedience",
+    "defiance",
+    "defiance"
+  ],
+  "Antonym": [
+    "submissive",
+    "docile",
+    "obedient",
+    "compliant",
+    "dominant"
+  ],
+  "InstanceOf": [
+    "television_episode"
+  ]
+}{}{}{
+  "RelatedTo": [
+    "network",
+    "file",
+    "file",
+    "upload",
+    "install",
+    "server",
+    "transfer",
+    "computer"
+  ],
+  "AtLocation": [
+    "brisbane",
+    "queensland"
+  ],
+  "InstanceOf": [
+    "organisation",
+    "band",
+    "film",
+    "television_show",
+    "single",
+    "television_episode",
+    "musical_work",
+    "television_show"
+  ],
+  "Synonym": [
+    "d_l",
+    "transfer",
+    "take",
+    "dl",
+    "move",
+    "copy"
+  ],
+  "Antonym": [
+    "upload",
+    "upload",
+    "upload",
+    "upload"
+  ],
+  "IsA": [
+    "transfer",
+    "single_broadcast_tv_show",
+    "activity",
+    "tv_show"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "load",
+    "down"
+  ],
+  "DerivedFrom": [
+    "load"
+  ]
+}{
+  "IsA": [
+    "rain",
+    "sprinkle",
+    "rain",
+    "rain"
+  ],
+  "RelatedTo": [
+    "lazy",
+    "little",
+    "little_rain",
+    "rain_cloud",
+    "small",
+    "thin_drop",
+    "wet",
+    "rain",
+    "annoy",
+    "dizzy",
+    "misty",
+    "pour",
+    "slow",
+    "syrup",
+    "tiny_rain",
+    "water_movement",
+    "light",
+    "movement",
+    "much_water",
+    "slight",
+    "thin_rain",
+    "yes",
+    "density",
+    "in_rain",
+    "much",
+    "rain_drop",
+    "type",
+    "cloud",
+    "lazy_rain",
+    "misty_rain",
+    "small_drop",
+    "sprinkle",
+    "thin",
+    "fog",
+    "oil",
+    "light_rain",
+    "mist",
+    "rain",
+    "rain_type",
+    "slight_rain",
+    "water",
+    "wet_misty",
+    "cook",
+    "urinate",
+    "drop",
+    "rain_density",
+    "slow_rain",
+    "tiny",
+    "wet_sprinkle",
+    "mist",
+    "pour"
+  ],
+  "Antonym": [
+    "downpour",
+    "pour",
+    "heavy"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "dryseling",
+    "drowse",
+    "droze"
+  ],
+  "HasProperty": [
+    "welcome_when_fire_be_rampant"
+  ],
+  "DerivedFrom": [
+    "moisten",
+    "drizzle"
+  ],
+  "InstanceOf": [
+    "software"
+  ]
+}{
+  "DefinedAs": [
+    "lack_of_precipitation"
+  ],
+  "RelatedTo": [
+    "dry_spell",
+    "rainfall",
+    "severe",
+    "aridity",
+    "period"
+  ],
+  "InstanceOf": [
+    "album",
+    "album",
+    "musical_work",
+    "extend_play",
+    "musical_work"
+  ],
+  "IsA": [
+    "prolong_absence_of_rain",
+    "natural_hazard",
+    "time_period",
+    "weather",
+    "dryness",
+    "when_insufficient_rain_fall"
+  ],
+  "Causes": [
+    "famine"
+  ],
+  "CausesDesire": [
+    "water_plant"
+  ],
+  "CapableOf": [
+    "cause_plant_to_die",
+    "cause_agricultural_and_economic_disaster",
+    "cause_live_thing_to_die",
+    "last_year"
+  ]
+}{
+  "IsA": [
+    "organic_matter"
+  ]
+}{
+  "InstanceOf": [
+    "film",
+    "write_work",
+    "film",
+    "play"
+  ],
+  "IsA": [
+    "arrival",
+    "riser"
+  ],
+  "DerivedFrom": [
+    "bird",
+    "early"
+  ],
+  "RelatedTo": [
+    "person",
+    "wake",
+    "early",
+    "arrive"
+  ],
+  "Synonym": [
+    "early_riser",
+    "morning_person"
+  ],
+  "Antonym": [
+    "night_person",
+    "nighthawk",
+    "night_owl"
+  ],
+  "CapableOf": [
+    "desire_worm"
+  ]
+}{}{}{
+  "DerivedFrom": [
+    "filter",
+    "filtration",
+    "filtration",
+    "strainer",
+    "filtrate"
+  ],
+  "InstanceOf": [
+    "website",
+    "organisation",
+    "band",
+    "magazine",
+    "periodical_literature",
+    "write_work",
+    "television_show"
+  ],
+  "IsA": [
+    "band",
+    "tv_show",
+    "device",
+    "separate",
+    "electrical_device",
+    "fluid_filtration_process"
+  ],
+  "RelatedTo": [
+    "filter",
+    "mechanism",
+    "particulate",
+    "software",
+    "filtrate",
+    "filtration",
+    "meet",
+    "signal",
+    "substance",
+    "procedure",
+    "gradually",
+    "sift",
+    "slowly",
+    "device",
+    "dissolve",
+    "solution",
+    "filtride",
+    "electronics",
+    "empty_set",
+    "item",
+    "suspend",
+    "concentrate",
+    "diffuse",
+    "focus",
+    "motorcycle",
+    "sort",
+    "fluid",
+    "frequency",
+    "isolate",
+    "noise",
+    "partially_order_set",
+    "separate",
+    "isolate",
+    "lane",
+    "attenuate",
+    "upper_set",
+    "pass"
+  ],
+  "CapableOf": [
+    "separate_solid_from_liquid",
+    "separate_solid",
+    "clean_dust_out_of_air",
+    "remove_some_mineral_from_water"
+  ],
+  "Antonym": [
+    "unfiltered",
+    "ideal"
+  ],
+  "PartOf": [
+    "cigarette",
+    "espresso_machine"
+  ],
+  "Synonym": [
+    "physical_filter",
+    "filter_out"
+  ],
+  "UsedFor": [
+    "purify_water"
+  ]
+}{}{}{}{}{}{
+  "InstanceOf": [
+    "band",
+    "organisation",
+    "album",
+    "musical_work"
+  ],
+  "RelatedTo": [
+    "notice",
+    "predict_weather",
+    "rain_likely",
+    "future",
+    "weather",
+    "weather_notice",
+    "future",
+    "action",
+    "before",
+    "plan_outdoor",
+    "prediction",
+    "see_before",
+    "weather_prediction",
+    "weather_something",
+    "weather",
+    "event",
+    "future_tell",
+    "future_weather",
+    "outdoor",
+    "rain",
+    "plan",
+    "see",
+    "weather_future",
+    "estimate",
+    "call",
+    "predict",
+    "projection",
+    "forecast",
+    "future_call",
+    "likely",
+    "tell",
+    "weather_plan",
+    "forecast",
+    "estimation",
+    "prediction"
+  ],
+  "IsA": [
+    "band",
+    "predict"
+  ],
+  "DerivedFrom": [
+    "prediction",
+    "forecaster",
+    "prognosis",
+    "calculation",
+    "calculation"
+  ]
+}{
+  "RelatedTo": [
+    "warn",
+    "fore",
+    "foretell",
+    "warn",
+    "omen",
+    "in_advance",
+    "advance"
+  ],
+  "IsA": [
+    "warn",
+    "warn"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "warn",
+    "fore"
+  ],
+  "DerivedFrom": [
+    "forewarn"
+  ]
+}{}{
+  "DerivedFrom": [
+    "frisk"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "fresh",
+    "freak"
+  ],
+  "RelatedTo": [
+    "gambol",
+    "leap",
+    "frolic",
+    "frisky",
+    "dance",
+    "frolic",
+    "wanton",
+    "leap",
+    "search",
+    "skip",
+    "lively",
+    "fit",
+    "skip",
+    "gaiety",
+    "gambol",
+    "brisk",
+    "frolicsome",
+    "playful"
+  ],
+  "InstanceOf": [
+    "band",
+    "film",
+    "book",
+    "organisation",
+    "write_work"
+  ],
+  "IsA": [
+    "book",
+    "search",
+    "search"
+  ]
+}{
+  "DerivedFrom": [
+    "fur"
+  ],
+  "IsA": [
+    "winter_coat",
+    "coat"
+  ],
+  "RelatedTo": [
+    "fur",
+    "coat"
+  ]
+}{}{
+  "CausesDesire": [
+    "eat_quickly"
+  ],
+  "IsA": [
+    "deadly_sin",
+    "vice",
+    "intemperance",
+    "mortal_sin"
+  ],
+  "RelatedTo": [
+    "glutton",
+    "gluttonous",
+    "vice",
+    "excess"
+  ],
+  "Attribute": [
+    "gluttonous"
+  ],
+  "Antonym": [
+    "temperance"
+  ]
+}{
+  "Synonym": [
+    "gummy",
+    "icky",
+    "sticky"
+  ],
+  "RelatedTo": [
+    "goo",
+    "soft",
+    "viscous",
+    "sticky"
+  ],
+  "DerivedFrom": [
+    "sludge",
+    "goo"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "y",
+    "goo"
+  ]
+}{}{}{
+  "HasPrerequisite": [
+    "that_seed_have_be_plant"
+  ],
+  "InstanceOf": [
+    "film",
+    "band",
+    "organisation",
+    "album",
+    "artwork",
+    "album",
+    "album",
+    "musical_work",
+    "album",
+    "musical_work",
+    "write_work",
+    "television_episode",
+    "album",
+    "studio",
+    "film",
+    "musical_work",
+    "television_episode",
+    "magazine",
+    "musical_work",
+    "periodical_literature",
+    "album",
+    "soundtrack",
+    "software",
+    "film",
+    "album",
+    "musical_work",
+    "musical_work",
+    "album",
+    "musical_work",
+    "musical_work",
+    "film"
+  ],
+  "IsA": [
+    "magazine",
+    "single_broadcast_tv_show",
+    "single_broadcast_tv_show",
+    "single_broadcast_tv_show",
+    "remove",
+    "album",
+    "movie",
+    "musical_composition",
+    "gather",
+    "consequence",
+    "season",
+    "band"
+  ],
+  "RelatedTo": [
+    "action",
+    "autumn_crop",
+    "crop",
+    "fall",
+    "in_fall",
+    "reap_crop",
+    "vegetable",
+    "fall",
+    "win",
+    "crop_festival",
+    "in_autumn",
+    "involve",
+    "reap",
+    "crop",
+    "achieve",
+    "reap",
+    "autumn",
+    "farm_job",
+    "growth",
+    "glean",
+    "collect_growth",
+    "fall_time",
+    "farm",
+    "festival",
+    "gather_crop",
+    "gather_food",
+    "pick_crop",
+    "pagan",
+    "result",
+    "yield",
+    "collect",
+    "during",
+    "job",
+    "pick_time",
+    "time",
+    "bring_in",
+    "gather",
+    "pick",
+    "plant",
+    "plant_involve",
+    "harvest",
+    "food",
+    "autumn",
+    "agriculture",
+    "collect_crop",
+    "during_fall",
+    "autumn_equinox",
+    "product",
+    "season",
+    "gain"
+  ],
+  "Synonym": [
+    "yield",
+    "consequence",
+    "produce",
+    "autumn",
+    "crop",
+    "effect",
+    "pick",
+    "crop",
+    "outcome",
+    "result",
+    "issue",
+    "fall"
+  ],
+  "Antonym": [
+    "plant"
+  ],
+  "PartOf": [
+    "farm"
+  ]
+}{
+  "InstanceOf": [
+    "film",
+    "album",
+    "television_episode",
+    "musical_work"
+  ],
+  "IsA": [
+    "fictitious_character",
+    "single_broadcast_tv_show",
+    "cartoon_character",
+    "single_broadcast_tv_show"
+  ],
+  "DerivedFrom": [
+    "heal"
+  ],
+  "RelatedTo": [
+    "faith"
+  ]
+}{
+  "DerivedFrom": [
+    "heat"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "proof",
+    "heat"
+  ],
+  "RelatedTo": [
+    "insulate",
+    "insulate",
+    "incombustible",
+    "incombustible"
+  ]
+}{
+  "DefinedAs": [
+    "one_type_of_music",
+    "naem_of_group_of_chemical_and_be_also_name_give_to_certain_kind_of_music_group_additionally_metal_be_usually_heavy_in_weight_but_not_always"
+  ],
+  "InstanceOf": [
+    "magazine",
+    "write_work",
+    "person",
+    "periodical_literature",
+    "wrestler",
+    "film",
+    "television_episode",
+    "athlete"
+  ],
+  "IsA": [
+    "alloy",
+    "overrate_form_of_expression",
+    "metallic_element",
+    "rock_n_roll",
+    "music",
+    "rock_genre",
+    "movie",
+    "single_broadcast_tv_show",
+    "metal"
+  ],
+  "RelatedTo": [
+    "environment",
+    "heavy_metal_umlaut",
+    "poisonous",
+    "lead",
+    "rock_music",
+    "acid_rock",
+    "specific_gravity",
+    "hazard"
+  ],
+  "DerivedFrom": [
+    "heavy",
+    "metal"
+  ],
+  "ReceivesAction": [
+    "equate_with_devil_worship_by_some_person"
+  ]
+}{}{}{
+  "IsA": [
+    "music_single",
+    "move",
+    "tv_show",
+    "receive",
+    "persuade",
+    "musical_composition",
+    "steal"
+  ],
+  "RelatedTo": [
+    "bundle",
+    "con",
+    "deceive",
+    "disco",
+    "sex",
+    "pimp",
+    "prostitute",
+    "dance",
+    "disco",
+    "rush",
+    "hurry"
+  ],
+  "InstanceOf": [
+    "single",
+    "musical_work",
+    "television_show",
+    "album",
+    "musical_work",
+    "film",
+    "musical_work",
+    "single"
+  ],
+  "DerivedFrom": [
+    "hustler",
+    "streetwalker"
+  ]
+}{
+  "RelatedTo": [
+    "crystalline",
+    "set",
+    "tissue",
+    "water",
+    "incorporation",
+    "molecule",
+    "complex",
+    "harden",
+    "chemical",
+    "adequate",
+    "cement",
+    "compound",
+    "hydrate"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "hydrate",
+    "ion"
+  ],
+  "DerivedFrom": [
+    "hydrate"
+  ],
+  "IsA": [
+    "association"
+  ]
+}{}{}{
+  "RelatedTo": [
+    "light",
+    "ornamental",
+    "book",
+    "glow",
+    "manuscript",
+    "shine",
+    "illustrate",
+    "irradiate",
+    "clarify",
+    "understandable",
+    "decorate",
+    "enlightenment",
+    "expose",
+    "enlighten",
+    "page",
+    "spectacular",
+    "decorate",
+    "design",
+    "light",
+    "light_up"
+  ],
+  "HasContext": [
+    "art"
+  ],
+  "InstanceOf": [
+    "studio_album",
+    "album",
+    "musical_work",
+    "album",
+    "single",
+    "organisation",
+    "album",
+    "album",
+    "musical_work",
+    "band",
+    "musical_work",
+    "musical_work",
+    "musical_work",
+    "musical_work",
+    "album"
+  ],
+  "DerivedFrom": [
+    "miniature"
+  ],
+  "Synonym": [
+    "illumination",
+    "illumine"
+  ],
+  "EtymologicallyDerivedFrom": [
+    "lumen",
+    "leam"
+  ],
+  "Entails": [
+    "paint"
+  ],
+  "IsA": [
+    "decorate"
+  ]
+}{
+  "InstanceOf": [
+    "musical_work",
+    "album",
+    "organisation",
+    "write_work",
+    "musical_work",
+    "book",
+    "write_work",
+    "album",
+    "musical_work",
+    "musical_work",
+    "album",
+    "musical_work",
+    "album",
+    "musical_work",
+    "band",
+    "musical_work",
+    "single",
+    "software",
+    "organisation",
+    "musical_work",
+    "video_game",
+    "album",
+    "company",
+    "album",
+    "musical_work",
+    "film",
+    "film",
+    "write_work",
+    "book",
+    "album",
+    "album",
+    "book"
+  ],
+  "RelatedTo": [
+    "fake",
+    "ill",
+    "optical",
+    "with_ill",
+    "magician",
+    "not",
+    "pretend_image",
+    "desert",
+    "magic",
+    "magician_trick",
+    "pretend",
+    "real",
+    "visual_trick",
+    "may_seem",
+    "trick",
+    "misapprehension",
+    "hallucination",
+    "magician",
+    "magic_trick",
+    "may",
+    "image",
+    "mirage",
+    "seem",
+    "visual"
+  ],
+  "IsA": [
+    "something",
+    "album",
+    "cartoon_character",
+    "musical_composition",
+    "systematic_characteristic_error_in_perception",
+    "appearance",
+    "band",
+    "business",
+    "fictitious_character",
+    "book",
+    "misconception"
+  ],
+  "PartOf": [
+    "magic"
+  ],
+  "HasProperty": [
+    "delightful",
+    "entertain",
+    "fun"
+  ],
+  "Antonym": [
+    "real",
+    "all"
+  ],
+  "CapableOf": [
+    "fool_eye",
+    "appear_real"
+  ],
+  "AtLocation": [
+    "yokohama"
+  ],
+  "Synonym": [
+    "misapprehension"
+  ]
+}{
+  "InstanceOf": [
+    "album",
+    "musical_work",
+    "album",
+    "academic_journal",
+    "musical_work",
+    "periodical_literature",
+    "write_work"
+  ],
+  "RelatedTo": [
+    "biological",
+    "biological_defence",
+    "shoot",
+    "shot",
+    "vaccine",
+    "disease",
+    "exemption_from",
+    "pea",
+    "safeness",
+    "survivor",
+    "immunize",
+    "no_pea",
+    "protection",
+    "safe",
+    "blood_protection",
+    "body",
+    "defence",
+    "fight",
+    "illness",
+    "sickness",
+    "natural_heath",
+    "physical_defense",
+    "safe_from",
+    "safety",
+    "immuno",
+    "create",
+    "exemption",
+    "fight_disease",
+    "physical",
+    "vaccine_product",
+    "immunology",
+    "ability",
+    "blood",
+    "disease_protection",
+    "heath",
+    "natural",
+    "product",
+    "vaccine_create",
+    "insusceptible",
+    "resistance",
+    "body_ability",
+    "defense",
+    "virus",
+    "diplomatic_immunity"
+  ],
+  "Synonym": [
+    "exemption",
+    "get_out_of_jail_free_card",
+    "free_pass"
+  ],
+  "IsA": [
+    "condition",
+    "invulnerability"
+  ],
+  "HasContext": [
+    "medicine"
+  ]
+}

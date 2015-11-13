@@ -207,7 +207,7 @@ var Heartless = function() {
 
     var finalMeet = twains[tLength-1].helper.name;
 
-    var closeText = 'and gave a starving {{WOLF}} his horse to eat. The {{WOLF}} let the prince ride on him, instead, and showed him the giant\'s castle, telling him to go inside. The prince was reluctant fearing the wrath of the giant, but the {{WOLF}} consoled him. The {{WOLF}} persuaded the prince to enter the castle for there he would encounter not the giant, but the princess the giant kept prisoner.'.replace(/{{WOLF}}/ig, finalMeet);
+    var closeText = 'and gave a starving {{WOLF}} his horse to eat. The {{WOLF}} let the {{PRINCE}} ride on him, instead, and showed him the {{GIANT}}\'s castle, telling him to go inside. The {{PRINCE}} was reluctant fearing the wrath of the {{GIANT}}, but the {{WOLF}} consoled him. The {{WOLF}} persuaded the {{PRINCE}} to enter the castle for there he would encounter not the {{GIANT}}, but the princess the {{GIANT}} kept prisoner.'.replace(/{{WOLF}}/ig, finalMeet);
 
     meets.push(closeText);
 
@@ -221,7 +221,7 @@ var Heartless = function() {
     var desc = [],
         tLength = twains.length;
 
-    desc.push('Thereupon the giant revealed to her that, in fact, ');
+    desc.push('Thereupon the {{GIANT}} revealed to her that, in fact, ');
 
     for (var i = 0; i < tLength; i++) {
       var locale = twains[i].antagonist.locale,
@@ -232,7 +232,7 @@ var Heartless = function() {
       }
     }
 
-    desc.push(`, and in the ${beast}'s nest was an egg; and in the egg was the giant\'s heart.`);
+    desc.push(`, and in the ${beast}'s nest was an egg; and in the egg was the {{GIANT}}\'s heart.`);
 
     return desc.join('');
 
@@ -245,7 +245,7 @@ var Heartless = function() {
     var finalHelper = twains[tLength-1].helper.name;
     var finalAntag = twains[tLength-1].antagonist.name;
 
-    desc.push(`The prince rode to the ${twains[0].antagonist.locale}, where the ${finalHelper} jumped to attention.`);
+    desc.push(`The {{PRINCE}} rode to the ${twains[0].antagonist.locale}, where the ${finalHelper} jumped to attention.`);
 
     for (var i = 0; i < tLength; i++) {
       var antag = twains[i].antagonist.name,
@@ -253,16 +253,16 @@ var Heartless = function() {
           ability = twains[i].helper.ability;
 
       if (i > 0) {
-        desc.push(`The prince rode on to the ${twains[i].antagonist.locale}, where he was menaced by a ${antag}.`);
+        desc.push(`The {{PRINCE}} rode on to the ${twains[i].antagonist.locale}, where he was menaced by a ${antag}.`);
       }
 
       // menacing from antagonist, or other such encounter
-      desc.push(`The prince called on the ${helper} to defeat the ${antag}.`);
+      desc.push(`The {{PRINCE}} called on the ${helper} to defeat the ${antag}.`);
       desc.push(`The ${helper} defeated the ${antag} by using its ${ability}.`);
 
     }
 
-    desc.push(`The ${finalHelper} plucked the egg from the nest of the ${finalAntag}, gave it to the prince, and told him to squeeze it. When he did, the giant screamed. The ${finalHelper} told him to squeeze it again, and the giant promised anything if he would spare his life. The prince told him to change his brothers and their brides back to life, and the giant did so. Then the prince squeezed the egg into two and went home with the giant's captive princess as his bride; accompanying him were his brothers and their brides, and the king rejoiced.`);
+    desc.push(`The ${finalHelper} plucked the egg from the nest of the ${finalAntag}, gave it to the {{PRINCE}}, and told him to squeeze it. When he did, the {{GIANT}} screamed. The ${finalHelper} told him to squeeze it again, and the {{GIANT}} promised anything if he would spare his life. The {{PRINCE}} told him to change his brothers and their brides back to life, and the {{GIANT}} did so. Then the {{PRINCE}} squeezed the egg into two and went home with the {{GIANT}}'s captive princess as his bride; accompanying him were his brothers and their brides, and the king rejoiced.`);
 
     return desc.join(' ');
   };
@@ -271,30 +271,67 @@ var Heartless = function() {
   this.getTale = function() {
 
     var tale = `
-A king had seven sons, and when the other six went off to find brides, he kept the youngest with him because he could not bear to be parted from them all. They were supposed to bring back a bride for him, as well, but they found a king with six daughters and wooed them, forgetting their brother. But when they returned, they passed too close to a giant's castle, and he turned them all, both princes and princesses, to stone in a fit of rage.
+A king had seven sons, and when the other six went off to find brides, he kept the youngest with him because he could not bear to be parted from them all. They were supposed to bring back a bride for him, as well, but they found a king with six daughters and wooed them, forgetting their brother. But when they returned, they passed too close to a {{GIANT}}'s castle, and he turned them all, both princes and princesses, to stone in a fit of rage.
 
 When they did not return, the king, their father, tried to prevent their brother from following, but he went.
 
 {{HELPERINTRO}}
 
-The princess was very beautiful and the prince wanted to know how he could kill the giant and set her and his family free. The princess said that there was no way, as the giant did not keep his heart in his body and therefore could not be killed. When the giant returned, the princess hid the prince, and asked the giant where he kept his heart. He told her that it was under the door sill. The prince and princess dug there the next day and found no heart. The princess strewed flowers over the door sill, and when the giant returned, told him that it was because his heart lay there. The giant admitted it wasn't there and told her it was in the cupboard. As before, the princess and the prince searched, to no avail; once again, the princess strewed garlands of flowers on the cupboard and told the giant it was because his heart was there. {{DESCRIBESETUP}}
+The princess was very beautiful and the {{PRINCE}} wanted to know how he could kill the {{GIANT}} and set her and his family free. The princess said that there was no way, as the {{GIANT}} did not keep his heart in his body and therefore could not be killed. When the {{GIANT}} returned, the princess hid the {{PRINCE}}, and asked the {{GIANT}} where he kept his heart. He told her that it was under the door sill. The {{PRINCE}} and princess dug there the next day and found no heart. The princess strewed flowers over the door sill, and when the {{GIANT}} returned, told him that it was because his heart lay there. The {{GIANT}} admitted it wasn't there and told her it was in the cupboard. As before, the princess and the {{PRINCE}} searched, to no avail; once again, the princess strewed garlands of flowers on the cupboard and told the {{GIANT}} it was because his heart was there. {{DESCRIBESETUP}}
 
 {{FINALE}}`;
 
     return tale;
   };
 
-  this.tellit = function(twains) {
+  this.tellit = function(twains, giant) {
 
     var m = this.getMeetings(twains);
     var ds = this.describeSetup(twains);
     var hs = this.handleSituation(twains);
 
+    giant = (giant === undefined
+             ? this.Creature().nameGen('negative')
+             : giant);
+
+    var prince = 'prince';
+
     var story = this.getTale().replace(/{{HELPERINTRO}}/, m)
           .replace(/{{DESCRIBESETUP}}/, ds)
-          .replace(/{{FINALE}}/, hs);
+          .replace(/{{FINALE}}/, hs)
+          .replace(/{{GIANT}}/ig, giant)
+          .replace(/{{PRINCE}}/ig, prince);
 
     return story;
+
+  };
+
+  /// blarg, brain-dead.
+  // pass in the CURRENT GIANT, as well as the transformation
+  this.ongoing = function(twains, giant) {
+
+  console.log(`giant: ${giant}`);
+
+    giant = (giant === undefined
+             ? this.Creature().nameGen('negative')
+             : giant);
+
+    var prince = 'prince';
+
+    var sadness = `
+
+Eventually, the {{PRINCE}}, who lived a long an happy life, found his happiness slipping from his fingers. In time, his heart became hardened, his rule became corrupt, and he became a {{GIANT}}.
+
+`;
+
+    var tale = this.tellit(twains)
+          + sadness
+          .replace(/{{GIANT}}/ig, giant)
+          .replace(/{{PRINCE}}/ig, prince);
+
+    return { tale: tale,
+             giant: giant
+           };
 
   };
 
