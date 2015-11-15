@@ -9,12 +9,12 @@ In particular, a portion of some tales where the hero befriends several characte
 
 ## sample output
 [rough draft](https://gist.github.com/MichaelPaulukonis/3af142f787db2908d3f0)
-
+[second draft](https://gist.github.com/MichaelPaulukonis/24b0b2bc77e546647784)
 
 ## TODOs
 
  1. Make some elements a little more random. For some funs.
- 1. "Giant", for instance, could be swapped.
+ 1. DONE "Giant", for instance, could be swapped.
  1. Clean up existing grammar -- use proper [indefinite articles](https://github.com/MichaelPaulukonis/solanasbot03/blob/master/lib/indefinite.js)
  1. Make sure sentences make sense - there's some screwy stuff at end of meetups
  1. better meetups (could involve conversations?)
@@ -23,7 +23,7 @@ In particular, a portion of some tales where the hero befriends several characte
  1. matchup of abilities and environs
  1. environs descriptions = are already better, I think, but... better still.
  1. eh. Maybe this is all a dead-end
- 1. should this "just" be intergrated into [Malepropp](http://github.com/MichaelPaulukonis/malepropp), instead?
+ 1. should this "just" be integrated into [Malepropp](http://github.com/MichaelPaulukonis/malepropp), instead?
  1. Look at wikipedia's variations (see below)
 
 ## examples
