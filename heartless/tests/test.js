@@ -14,8 +14,8 @@ var tester = function() {
 
       var h = new Heartless();
 
-      it('should have a teller() method', function() {
-        expect(typeof(h.teller)).to.equal('function');
+      it('should have a getTale() method', function() {
+        expect(typeof(h.getTale)).to.equal('function');
       });
 
       it('should have a getTwain() method', function() {
@@ -44,6 +44,10 @@ var tester = function() {
 
       it('should have a Creature function', function() {
         expect(typeof(h.Creature)).to.equal('function');
+      });
+
+      it('should have an ongoing function', function() {
+        expect(typeof(h.ongoing)).to.equal('function');
       });
 
     });
@@ -166,53 +170,6 @@ var tester = function() {
 
       it('should return 0 when we don\'t pass a param', function() {
         expect(twainsnull.length).to.equal(0);
-      });
-
-    });
-
-    describe('teller', function() {
-
-      var h = new Heartless();
-      var twains5 = h.getTwains(5);
-      // var taleDefaults = h.teller();
-      // var taleTwains = h.teller(twains5);
-
-      it('should return an object (default params)', function() {
-        expect(typeof(h.teller())).to.equal('object');
-      });
-
-      it('should return an object ', function() {
-        expect(typeof(h.teller({ twains: twains5}))).to.equal('object');
-      });
-
-      describe('teller return properties (with no input config)', function() {
-
-        var tale = h.teller();
-
-        it('should return all expected properties', function() {
-          expect(tale).to.have.all.keys('tale', 'giantFuture');
-        });
-
-        it('"tale" should be a string', function() {
-          expect(typeof(tale.tale)).to.equal('string');
-        });
-
-        // this is a random number greater than the length of 'undefined'
-        // but otherwise meaningless
-        it('"tale" should be of non-zero length', function() {
-          expect(tale.tale).to.have.length.above(25);
-        });
-
-        it('"giantFuture" should be a string', function() {
-          expect(typeof(tale.tale)).to.equal('string');
-        });
-
-        // this is a random number, and could be elaborated
-        // but otherwise meaningless
-        it('"giantFuture" should be undefined (if not a continuing tale)', function() {
-          expect(typeof(tale.giantFuture)).to.equal('undefined');
-        });
-
       });
 
     });
