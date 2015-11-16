@@ -154,10 +154,14 @@ See prior art in "github resume" generation:
 
  - https://github.com/resume/resume.github.com
  - https://github.com/CodeFalling/GithubResume/
+ - https://github.com/deanmalmgren/year-in-review
 
 I thought I had used a different one in the past, that also told you what other Github users you were similar to, but cannot find it back...
 
 
 Looks like the API has a limitation on the last 300 events. Plus, auto-paginates to 30 events per page (cannot increase - MUST paginatedly capture).
 
-Look into: https://www.npmjs.com/package/github-scraper
+Look into:
+
+ - https://www.npmjs.com/package/github-scraper
+ - https://www.githubarchive.org/

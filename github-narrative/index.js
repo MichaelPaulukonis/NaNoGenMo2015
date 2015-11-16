@@ -37,13 +37,31 @@ askforit().then(function(body) {
   var events = {};
   if (body.length > 0) {
     events = JSON.parse(body);
-}
+  }
   console.log(events.length);
 
-  for(var event in events) {
-    if (events[event].created_at) {
-      console.log(events[event].created_at);
+  for (var i = 0; i < events.length; i++) {
+    var event = events[i];
+
+    // there are other types, and they should be handled as well.
+    if (event.type === 'IssueCommentEvent') {
+      console.log(`type: ${event['type']}`);
+      console.log(`created_at: ${event['created_at']}`);
+      // console.log('payload: ', event['payload']);
+      console.log(event.payload.comment.body);
+      // comment: payload.comment.body
     }
-  };
+  }
+
+
+  // for(var event in events) {
+
+  //   if (events[event].created_at) {
+  //     console.log(events[event].created_at);
+  //   }
+
+  //   for (var prop in events[event]) {
+  //     console.log(`property: ${prop} value: ${events[event][prop]}`);
+  //   }
 
 });

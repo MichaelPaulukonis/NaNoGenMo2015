@@ -8,8 +8,8 @@ I'm also still interested in Fairy Tales (see 2014 and the resultant slightly-mo
 In particular, a portion of some tales where the hero befriends several characters/creatures [despite (his) haste or advice] which then end up helping him get through a nested problem. Eg, the giant's heart is kept in a box at the top of a tower on an island in a lake past the thorns, past a guard-dragon, etc etc. I'd like to be able to generate a n-level deep problem with associated helper characters -- each of whom would have to have an attribute matched to solving the problem (bear kills dragon, eagle flies hero over lake, etc.). This would also involve some minimal conversations.
 
 ## sample output
-[rough draft](https://gist.github.com/MichaelPaulukonis/3af142f787db2908d3f0)
-[second draft](https://gist.github.com/MichaelPaulukonis/24b0b2bc77e546647784)
+ - [rough draft](https://gist.github.com/MichaelPaulukonis/3af142f787db2908d3f0)
+ - [second draft](https://gist.github.com/MichaelPaulukonis/24b0b2bc77e546647784) - thanks to @tra38 who [suggested](https://github.com/dariusk/NaNoGenMo-2015/issues/14#issuecomment-155147851) having the prince/hero turn into the giant in the next story. Which I refer to as "sadness".
 
 ## TODOs
 
