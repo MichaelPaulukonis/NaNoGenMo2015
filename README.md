@@ -137,3 +137,27 @@ var stringHash = function(word) {
  // hard-coded for this example only
 }
 ```
+
+
+# Github Narrative
+
+_A la_ Narrative Science _et alia_, could we generate a narrative of a users GitHub activity?
+
+
+See https://github.com/michaelpaulukonis/NaNoGenMo2015/heartless/github-narrative
+
+
+ - https://api.github.com/users/michaelpaulukonis
+ - https://api.github.com/users/MichaelPaulukonis/events
+
+See prior art in "github resume" generation:
+
+ - https://github.com/resume/resume.github.com
+ - https://github.com/CodeFalling/GithubResume/
+
+I thought I had used a different one in the past, that also told you what other Github users you were similar to, but cannot find it back...
+
+
+Looks like the API has a limitation on the last 300 events. Plus, auto-paginates to 30 events per page (cannot increase - MUST paginatedly capture).
+
+Look into: https://www.npmjs.com/package/github-scraper

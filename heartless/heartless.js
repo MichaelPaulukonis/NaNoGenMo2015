@@ -94,6 +94,18 @@ var Heartless = function() {
    1) function in the antogonist locale and
    2) defeat the antagonist
    */
+  /* TODO: better handling of properties used for battle, terrain, etc.
+   semantic analysis via the names is proving too difficult
+   (not getting good results from ConceptNet, at any rate)
+   so, fake it 'til you make it
+   randomly assign properties -- but make use of them.
+   be consistent.
+   perhaps _every_ animal in the beastiary has properties when launched (per run of Heartless)
+   the combo-animals have ... some combinations, or one predominant property
+   ditto for geographi features
+   (although those should probably be sorted - earth, air, fire, water, or something. have associations)
+   lessee what happens!
+   */
   function Creature(config) { // name, locale, ability, defeatedBy) {
 
     if(!(this instanceof Creature)) {
