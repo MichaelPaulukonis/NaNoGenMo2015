@@ -268,7 +268,7 @@ var Heartless = function() {
   };
 
 
-  this.getTale = function() {
+  var getTale = function() {
 
     var tale = `
 There came a king who had seven sons, and when the other six went off to find brides, he kept the youngest with him because he could not bear to be parted from them all. They were supposed to bring back a bride for him, as well, but they found a king with six daughters and wooed them, forgetting their brother. But when they returned, they passed too close to a {{GIANT}}'s castle, and he turned them all, both princes and princesses, to stone in a fit of rage.
@@ -284,62 +284,10 @@ The princess was very beautiful and the {{PRINCE}} wanted to know how he could k
     return tale;
   };
 
-  this.tellit = function(twains, giant) {
-
-    var m = this.getMeetings(twains);
-    var ds = this.describeSetup(twains);
-    var hs = this.handleSituation(twains);
-
-    giant = (giant === undefined
-             ? this.Creature().nameGen('negative')
-             : giant);
-
-    var prince = 'prince';
-
-    var story = this.getTale().replace(/{{HELPERINTRO}}/, m)
-          .replace(/{{DESCRIBESETUP}}/, ds)
-          .replace(/{{FINALE}}/, hs)
-          .replace(/{{GIANT}}/ig, giant)
-          .replace(/{{PRINCE}}/ig, prince);
-
-    return story;
-
-  };
-
-  /// blarg, brain-dead.
-  // pass in the CURRENT GIANT, as well as the transformation
-  this.ongoing = function(twains, giant) {
-
-    giant = (giant === undefined
-             ? this.Creature().nameGen('negative')
-             : giant);
-
-    var prince = 'prince';
-
-    var sadness = `
-
-Eventually, the {{PRINCE}}, who lived a long and happy life, found his happiness slipping from his fingers. In time, his heart became hardened, his rule became corrupt, and he became a {{GIANT}}.
-
-`;
-
-    var tale = this.tellit(twains, giant);
-
-    giant = this.Creature().nameGen('negative');
-
-    tale += sadness
-      .replace(/{{GIANT}}/ig, giant)
-      .replace(/{{PRINCE}}/ig, prince);
-
-    return { tale: tale,
-             giant: giant
-           };
-
-  };
-
   this.teller = function(config) {
-    if (config === undefined) {
+    if (config === undefined || config === null) {
       config = {
-        twains: [],
+        twains: this.getTwains(1),
         giantThreat: undefined,
         giantFuture: undefined,
         continueTale: false
@@ -362,7 +310,7 @@ Eventually, the {{PRINCE}}, who lived a long and happy life, found his happiness
 
     var prince = 'prince';
 
-    var story = this.getTale().replace(/{{HELPERINTRO}}/, m)
+    var story = getTale().replace(/{{HELPERINTRO}}/, m)
           .replace(/{{DESCRIBESETUP}}/, ds)
           .replace(/{{FINALE}}/, hs)
           .replace(/{{GIANT}}/ig, giant)
