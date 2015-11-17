@@ -26,7 +26,7 @@ var getpage = function(url) {
 
   var res = request('GET', url,
                     { headers: { 'user-agent': 'node.js',
-                               'access_token': config.access_token }});
+                                 'access_token': config.access_token }});
   var parsed = parse(res.headers.link);
 
   return { body: JSON.parse(res.getBody('utf8')), links: parsed };
@@ -55,18 +55,33 @@ while (true) {
 // 'Mon Oct 26 2015 08:05:52 GMT-0400 (Eastern Daylight Time)'
 // console.log('here are ALL of the issues: \n\n', issues);
 
-for (var i = 0; i < issues.length; i++) {
+var narrate = function(issues) {
 
-  var issue = issues[i],
-      openDate = new Date(issue.created_at).toString(),
-      name = issue.user.login,
-      title = issue.title;
+  var txt = [];
 
-  // TODO: format the openDate to remoce the GMT stuff
+  for (var i = 0; i < issues.length; i++) {
 
-  console.log(`On ${openDate}, ${name} opened a new issue called "${title}".`);
+    var issue = issues[i],
+        openDate = new Date(issue.created_at).toString().replace(/ GMT.*/, '');
+    name = issue.user.login,
+    title = issue.title;
 
-}
+    // some variations and comments on notable things
+    // morning, afternoon, evening, middle-of-the-night (which will not be accurate, but whatevs)
+    txt.push(`On ${openDate}, ${name} opened a new issue called "${title}".`);
+
+  }
+
+  return txt.join('\n');
+
+};
+
+
+// console.log(JSON.stringify(issues, null, 2));
+
+var text = narrate(issues);
+
+console.log(text);
 
 // TODO: optionally parse a local copy of file
 
