@@ -11,7 +11,11 @@ var url = 'https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues';
 
 var extend = function(obj, src) {
   for (var key in src) {
-    if (src.hasOwnProperty(key)) { obj[key] = src[key]; }
+    console.log('key', key);
+    if (src.hasOwnProperty(key)) {
+      console.log('yes!');
+      obj[key] = src[key];
+    }
   }
   return obj;
 };
@@ -30,18 +34,18 @@ var getpage = function(url) {
 };
 
 var next = url,
-    issues = {};
+    issues = [];
 
 while (true) {
-  console.log('url: ', next);
-  var res = getpage(next);
+  // console.log('url: ', next);
+  var page = getpage(next);
 
-  console.log('res.body: ', res.body);
+  // console.log('page.body: ', page.body);
 
-  issues = extend(issues, res.body);
+  issues = issues.concat(page.body); // extend(issues, page.body);
 
-  if(!res.links.next) { break; }
-  next = res.links.next.url;
+  if(!page.links.next) { break; }
+  next = page.links.next.url;
 
 }
 
@@ -49,9 +53,22 @@ while (true) {
 // '1445861152000'
 // > new Date('2015-10-26T12:05:52Z').toString()
 // 'Mon Oct 26 2015 08:05:52 GMT-0400 (Eastern Daylight Time)'
-console.log('here are ALL of the issues: \n\n', issues);
+// console.log('here are ALL of the issues: \n\n', issues);
 
+for (var i = 0; i < issues.length; i++) {
 
+  var issue = issues[i],
+      openDate = new Date(issue.created_at).toString(),
+      name = issue.user.login,
+      title = issue.title;
+
+  // TODO: format the openDate to remoce the GMT stuff
+
+  console.log(`On ${openDate}, ${name} opened a new issue called "${title}".`);
+
+}
+
+// TODO: optionally parse a local copy of file
 
 // actually, this looks really good, too:
 // https://www.npmjs.com/package/github-scraper
