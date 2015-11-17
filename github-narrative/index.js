@@ -1,67 +1,73 @@
-var request = require('request'); // https://www.npmjs.com/package/request
+var request = require('sync-request'),
+    parse = require('parse-link-header'),
+    config = require('./config');
 
 // temporary hard-coded username
 // https://developer.github.com/v3/activity/events/
 // can only grab last 90 days of events/300 items
 // whichever is less
-var url = 'https://api.github.com/users/MichaelPaulukonis/events';
+// var url = 'https://api.github.com/users/MichaelPaulukonis/events';
+var url = 'https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues';
 
+var extend = function(obj, src) {
+  for (var key in src) {
+    if (src.hasOwnProperty(key)) { obj[key] = src[key]; }
+  }
+  return obj;
+};
 
-var askforit = function() {
+// let's do this syncronously becuase... :::sigh:::
+// quicker ?
+var getpage = function(url) {
 
-  // http://stackoverflow.com/a/21384582/41153
-  var options = {
-    url: url,
-    headers: {'user-agent': 'node.js'}
-  };
+  var res = request('GET', url,
+                    { headers: { 'user-agent': 'node.js',
+                               'access_token': config.access_token }});
+  var parsed = parse(res.headers.link);
 
-  return new Promise(function(resolve, reject) {
-
-    request(options, function(error, response, body) {
-      // console.log('error: ' + error);
-      // console.log('response: ' + response);
-      // console.log('body: ' + body);
-      if(!error && response.statusCode === 200) {
-        console.log('SUCCESS!');
-        resolve(body);
-      }
-    });
-
-  });
+  return { body: JSON.parse(res.getBody('utf8')), links: parsed };
 
 };
 
-askforit().then(function(body) {
-  // console.log(`length: ${body.length}`);
-  // console.log(typeof body);
-  var events = {};
-  if (body.length > 0) {
-    events = JSON.parse(body);
-  }
-  console.log(events.length);
+var next = url,
+    issues = {};
 
-  for (var i = 0; i < events.length; i++) {
-    var event = events[i];
+while (true) {
+  console.log('url: ', next);
+  var res = getpage(next);
 
-    // there are other types, and they should be handled as well.
-    if (event.type === 'IssueCommentEvent') {
-      console.log(`type: ${event['type']}`);
-      console.log(`created_at: ${event['created_at']}`);
-      // console.log('payload: ', event['payload']);
-      console.log(event.payload.comment.body);
-      // comment: payload.comment.body
-    }
-  }
+  console.log('res.body: ', res.body);
+
+  issues = extend(issues, res.body);
+
+  if(!res.links.next) { break; }
+  next = res.links.next.url;
+
+}
 
 
-  // for(var event in events) {
 
-  //   if (events[event].created_at) {
-  //     console.log(events[event].created_at);
-  //   }
+console.log('here are ALL of the issues: \n\n', issues);
 
-  //   for (var prop in events[event]) {
-  //     console.log(`property: ${prop} value: ${events[event][prop]}`);
-  //   }
 
-});
+
+// actually, this looks really good, too:
+// https://www.npmjs.com/package/github-scraper
+
+// [...]
+//      { url: '/dariusk/NaNoGenMo-2015/issues/137',
+//        title: 'Automatic Essay Grading + (Markov Chains | Genetic Algorithm) = Novel?',
+//        created: '2015-11-05T15:23:39Z',
+//        author: 'nicholasg3',
+//        comments: 1,
+//        labels: [] },
+//      { url: '/dariusk/NaNoGenMo-2015/issues/136',
+//        title: 'The TPP: A "Found" Generated Novel',
+//        created: '2015-11-05T14:24:46Z',
+//        author: 'coleww',
+//        comments: 6,
+//        labels: [Object] } ],
+//   url: 'https://github.com/dariusk/nanogenmo-2015/issues',
+//   open: 159,
+//   closed: 0,
+//   next_page: '/dariusk/nanogenmo-2015/issues?page=2&q=is%3Aissue+is%3Aopen' }

@@ -5,7 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "commander": "^2.9.0",
+    "github-scraper": "^3.0.23",
+    "parse-link-header": "^0.4.1",
     "request": "^2.65.0",
+    "sync-request": "^2.1.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

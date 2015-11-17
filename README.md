@@ -149,12 +149,15 @@ See https://github.com/michaelpaulukonis/NaNoGenMo2015/heartless/github-narrativ
 
  - https://api.github.com/users/michaelpaulukonis
  - https://api.github.com/users/MichaelPaulukonis/events
+ - https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues
 
 See prior art in "github resume" generation:
 
  - https://github.com/resume/resume.github.com
  - https://github.com/CodeFalling/GithubResume/
  - https://github.com/deanmalmgren/year-in-review
+ - https://github.com/hugovk/nanogenmobot - scrapes NaNoGenMo data for twitter bot
+
 
 I thought I had used a different one in the past, that also told you what other Github users you were similar to, but cannot find it back...
 
