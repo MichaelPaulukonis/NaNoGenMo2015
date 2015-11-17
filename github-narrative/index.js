@@ -45,8 +45,10 @@ while (true) {
 
 }
 
-
-
+// This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+// '1445861152000'
+// > new Date('2015-10-26T12:05:52Z').toString()
+// 'Mon Oct 26 2015 08:05:52 GMT-0400 (Eastern Daylight Time)'
 console.log('here are ALL of the issues: \n\n', issues);
 
 
