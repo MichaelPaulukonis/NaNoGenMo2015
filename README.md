@@ -5,29 +5,18 @@ https://github.com/dariusk/NaNoGenMo-2015/issues/14
 
 # Conversation resources
 
-http://forum.makega.me/t/procedural-narrative-dialogue/91
-
-http://www.blog.radiator.debacle.us/2014/04/second-times-charm-procedural-npc.html
-
-http://koobazaur.com/gamedev/game-design/writing-branching-game-conversations/
-
-https://github.com/srfoster/Conversations - look at it more
-
-https://github.com/ncase/conversation - probably a dead end? not sure.
-
-https://github.com/hinrik/hailo - chatbot thing
-
-https://github.com/tdcha5/Character-Conversation - uh. student work. has a group round-robin talking. hrm.
-
-https://github.com/crathulis/ConversationCreator - also in Java
-
-http://forum.makega.me/t/procedural-narrative-dialogue/91/8
-
-http://notepad.smedresmania.com/2011/04/20/quality-based-narrative/
-
-https://groups.google.com/forum/#!topic/rec.games.roguelike.development/gj0WB-ydmNY
-
-http://tomasjurman.blogspot.com/2013/02/interactive-dialogue-for-html5-game.html
+ - http://forum.makega.me/t/procedural-narrative-dialogue/91
+ - http://www.blog.radiator.debacle.us/2014/04/second-times-charm-procedural-npc.html
+ - http://koobazaur.com/gamedev/game-design/writing-branching-game-conversations/
+ - https://github.com/srfoster/Conversations - look at it more
+ - https://github.com/ncase/conversation - probably a dead end? not sure.
+ - https://github.com/hinrik/hailo - chatbot thing
+ - https://github.com/tdcha5/Character-Conversation - uh. student work. has a group round-robin talking. hrm.
+ - https://github.com/crathulis/ConversationCreator - also in Java
+ - http://forum.makega.me/t/procedural-narrative-dialogue/91/8
+ - http://notepad.smedresmania.com/2011/04/20/quality-based-narrative/
+ - https://groups.google.com/forum/#!topic/rec.games.roguelike.development/gj0WB-ydmNY
+ - http://tomasjurman.blogspot.com/2013/02/interactive-dialogue-for-html5-game.html
 
 
 # Story Generation in general
@@ -37,9 +26,10 @@ http://tomasjurman.blogspot.com/2013/02/interactive-dialogue-for-html5-game.html
  - [Meta-AQUA](https://web.archive.org/web/20100427191143/http://mcox.org/Meta-AQUA/) - uses a modified version of TaleSpin to produce input
 - [RoleModel: Towards a Formal Model of Dramatic Roles for Story Generation ](https://users.soe.ucsc.edu/~amsmith/papers/a17-chen.pdf)
 
+
 # Minstrel
 
-[pdf](ftp://ftp.cs.ucla.edu/tech-report/1992-reports/920057.pdf)
+ftp://ftp.cs.ucla.edu/tech-report/1992-reports/920057.pdf
 
 
 # Tale-Spin
@@ -55,13 +45,15 @@ http://tomasjurman.blogspot.com/2013/02/interactive-dialogue-for-html5-game.html
  - [Inside Micro Tale-Spin: Symbolic Computing with Lisp applied to story telling.](http://lispm.de/mts)
  - [Reading Digital Literature: Surface, Data, Interaction, and Expressive Processing](http://digitalhumanities.org/companion/view?docId=blackwell/9781405148641/9781405148641.xml&chunk.id=ss1-5-2&toc.id=0&brand=9781405148641_brand) - Noah Wardrip-Fruin. Plus a lot of other, non-_Tale-Spin_ reading at that link
 
+
 # The Giant Who Had No Heart in His Body
 
-I'm also still interested in Fairy Tales (see 2014 and the resultant slightly-modified-since-then-but-not-much Malepropp).
+I'm still interested in Fairy Tales (see 2014 and the resultant slightly-modified-since-then-but-not-much Malepropp).
 
 In particular, a portion of some tales where the hero befriends several characters/creatures [despite (his) haste or advice] which then end up helping him get through a nested problem. Eg, the giant's heart is kept in a box at the top of a tower on an island in a lake past the thorns, past a guard-dragon, etc etc. I'd like to be able to generate a n-level deep problem with associated helper characters -- each of whom would have to have an attribute matched to solving the problem (bear kills dragon, eagle flies hero over lake, etc.). This would also involve some minimal conversations.
 
 See implementation in [Heartless](https://github.com/MichaelPaulukonis/NaNoGenMo2015/tree/master/heartless). Pure templating as of 2015.11.07. Not as thrilling as I had hoped. But I had hoped for some attribute matching, instead of pure randomness-from-dumb-lists.
+
 
 # nltk and word2vec (link-dump)
 Okay, I'm going to be playing with some Python stuff again.
@@ -115,56 +107,8 @@ https://github.com/anihex/SimpleStoryCreator
 
 
 # ConceptNet
- - http://conceptnet5.media.mit.edu/web/c/en/surf_net
- - Matt Fister's [wordtools](https://github.com/mattfister/wordtools) has an offline, reduced version of ConceptNet in .json file, with a Python front-end. It's a very simple front end, and could be interesting to port to Node.
- - See it in action in his [NaNoGenMo2015](https://github.com/mattfister/nanogenmo2015) entry
-
-```
-pip install nltk
-python conceptnet_searcher.py dragon
-```
-
-
-duplicate the word-hash in javascript:
-
-```
-var stringHash = function(word) {
- var sum = 0;
-   for (var i = 0; i < word.length; i++) {
-     sum += i*word.charCodeAt(i);
-   }
- return sum % 50; // where 50 := the number of files we are dealing with
- // hard-coded for this example only
-}
-```
-
+See [conceptnet](https://github.com/MichaelPaulukonis/NaNoGenMo2015/tree/master/conceptnet)
 
 # Github Narrative
 
-_A la_ Narrative Science _et alia_, could we generate a narrative of a users GitHub activity?
-
-
-See https://github.com/michaelpaulukonis/NaNoGenMo2015/heartless/github-narrative
-
-
- - https://api.github.com/users/michaelpaulukonis
- - https://api.github.com/users/MichaelPaulukonis/events
- - https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues
-
-See prior art in "github resume" generation:
-
- - https://github.com/resume/resume.github.com
- - https://github.com/CodeFalling/GithubResume/
- - https://github.com/deanmalmgren/year-in-review
- - https://github.com/hugovk/nanogenmobot - scrapes NaNoGenMo data for twitter bot
-
-
-I thought I had used a different one in the past, that also told you what other Github users you were similar to, but cannot find it back...
-
-
-Looks like the API has a limitation on the last 300 events. Plus, auto-paginates to 30 events per page (cannot increase - MUST paginatedly capture).
-
-Look into:
-
- - https://www.npmjs.com/package/github-scraper
- - https://www.githubarchive.org/
+See [github-narrative](https://github.com/MichaelPaulukonis/NaNoGenMo2015/tree/master/github-narrative)
