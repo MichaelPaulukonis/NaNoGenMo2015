@@ -1,4 +1,4 @@
-var narrative = function() {
+var narrative = function(filename) {
 
   var request = require('sync-request'),
       parse = require('parse-link-header'),
@@ -18,7 +18,8 @@ var narrative = function() {
 
     var res = request('GET', url,
                       { headers: { 'user-agent': 'node.js',
-                                   'access_token': config.access_token }});
+                                   'Authorization': 'token ' + config.access_token }});
+
     var parsed = parse(res.headers.link);
 
     return { body: JSON.parse(res.getBody('utf8')), links: parsed };
@@ -28,7 +29,8 @@ var narrative = function() {
   var next = url,
       issues = [];
 
-  if (config.use_local) {
+  // something's not quite right, here....
+  if (filename === undefined && config.use_local) {
     issues = require(config.local_file);
   } else {
 
@@ -36,7 +38,14 @@ var narrative = function() {
       // console.log('url: ', next);
       var page = getpage(next);
 
-      // console.log('page.body: ', page.body);
+      // at this point, page.body is an array of issues
+      // loop through each, getting both the comments and events
+
+      for (var i = 0; i < page.body.length; i++) {
+        var issue = page.body[i];
+        issue.events = getpage(issue.events_url).body;
+        issue.comments = getpage(issue.comments_url).body;
+      }
 
       issues = issues.concat(page.body); // extend(issues, page.body);
 
@@ -46,6 +55,15 @@ var narrative = function() {
     }
 
   }
+
+  if (filename !== undefined) {
+    var fs = require('fs');
+    fs.writeFileSync(filename, JSON.stringify(issues, null, 2));
+
+    process.exit();
+
+  }
+
   // This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
   // > new Date('2015-10-26T12:05:52Z').toString()
   // 'Mon Oct 26 2015 08:05:52 GMT-0400 (Eastern Daylight Time)'
@@ -118,7 +136,7 @@ var narrative = function() {
       }
 
       txt.push(msg.join(' '));
-9
+
     }
 
     return txt.join('\n');
@@ -131,6 +149,8 @@ var narrative = function() {
   var text = narrate(issues);
 
   console.log(text);
+
+  //https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/161/events
 
   // TODO: optionally parse a local copy of file
 
@@ -156,4 +176,21 @@ var narrative = function() {
   //   next_page: '/dariusk/nanogenmo-2015/issues?page=2&q=is%3Aissue+is%3Aopen' }
 
 
-}();
+};
+
+
+var program = require('commander');
+
+program
+  .version('0.0.1')
+  .option('-a, --archive', 'save to json file')
+  .option('-n --name [string]', 'name of archive file', 'archive.json')
+  .parse(process.argv);
+
+console.log(program);
+
+if (program.archive !== undefined) {
+  narrative(program.name);
+} else {
+  narrative();
+};
