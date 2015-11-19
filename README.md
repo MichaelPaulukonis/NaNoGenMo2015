@@ -1,7 +1,13 @@
 # NaNoGenMo2015
 things. you no. GenMo-y things.
 
-https://github.com/dariusk/NaNoGenMo-2015/issues/14
+[National Novel Generation Month 2015](https://github.com/dariusk/NaNoGenMo-2015/): _Spend the month of November writing code that generates a novel of 50k+ words._
+
+My two main projects-with-product right now are:
+
+ - [The Programmer Who Had No Heart in His Body](https://github.com/dariusk/NaNoGenMo-2015/issues/14)
+ - [The Tale of the Github Repository](https://github.com/dariusk/NaNoGenMo-2015/issues/162)
+
 
 # Conversation resources
 
@@ -24,7 +30,7 @@ https://github.com/dariusk/NaNoGenMo-2015/issues/14
  - http://www.escapistmagazine.com/articles/view/video-games/columns/experienced-points/10168-Procedural-Stories
  - https://www.reddit.com/r/gamedev/comments/1d3zrz/the_details_of_procedural_story_generation_and/
  - [Meta-AQUA](https://web.archive.org/web/20100427191143/http://mcox.org/Meta-AQUA/) - uses a modified version of TaleSpin to produce input
-- [RoleModel: Towards a Formal Model of Dramatic Roles for Story Generation ](https://users.soe.ucsc.edu/~amsmith/papers/a17-chen.pdf)
+ - [RoleModel: Towards a Formal Model of Dramatic Roles for Story Generation ](https://users.soe.ucsc.edu/~amsmith/papers/a17-chen.pdf)
 
 
 # Minstrel
