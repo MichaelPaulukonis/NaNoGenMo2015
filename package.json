@@ -6,6 +6,8 @@
   "dependencies": {
     "commander": "^2.9.0",
     "github-scraper": "^3.0.23",
+    "jinq": "1.5.2",
+    "linq": "3.0.5",
     "parse-link-header": "^0.4.1",
     "request": "^2.65.0",
     "sync-request": "^2.1.0",

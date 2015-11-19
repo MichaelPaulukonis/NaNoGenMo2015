@@ -1,3 +1,5 @@
+'use strict';
+
 var narrative = function(filename) {
 
   var request = require('sync-request'),
@@ -35,14 +37,14 @@ var narrative = function(filename) {
   } else {
 
     while (true) {
-      // console.log('url: ', next);
-      var page = getpage(next);
+
+      let page = getpage(next);
 
       // at this point, page.body is an array of issues
       // loop through each, getting both the comments and events
 
       for (var i = 0; i < page.body.length; i++) {
-        var issue = page.body[i];
+        let issue = page.body[i];
         issue.events = getpage(issue.events_url).body;
         issue.comments = getpage(issue.comments_url).body;
       }
@@ -68,7 +70,27 @@ var narrative = function(filename) {
   // > new Date('2015-10-26T12:05:52Z').toString()
   // 'Mon Oct 26 2015 08:05:52 GMT-0400 (Eastern Daylight Time)'
 
+  /**
 
+   TODO: I suppose we have several strategies available
+   develop a purely linear timeline -- each event that happened
+   jumping from type-to-type, as events occur
+
+   issue-based timeline
+   focus on one issue, and what happens to it.
+
+   user-based timeline
+   what specific users did
+
+
+   mixed timeline -- combines pieces of the above
+   based on ... some algorithm
+
+   **/
+
+  // TODO: label extractor
+  // completed, preview, admin, etc
+  // TODO: extracctor to find out what uniqueness we've got...
   var isAdmin = function(issue) {
     var isAdmin = false;
 
@@ -100,6 +122,88 @@ var narrative = function(filename) {
   };
 
 
+  /**
+   Event := {
+   eventtype: issue|comment|label
+   created_at: date
+   payload: {object}
+   }
+   **/
+
+  var getEvents = function(issues) {
+
+    // loop through all issues - including comments and events
+    // sequence them all out, and then sort by date-thing
+    var events = [];
+
+    for (let issue of issues) {
+      events.push({ eventtype: 'issue',
+                    created_at: issue.created_at,
+                    payload: issue });
+
+      for (let comment of issue.comments) {
+        // needs to capture the particular issue it was aimed at
+        // this "pure" linear-narrative makes the comments... weird.
+        events.push({ eventtype: 'comment',
+                      created_at: comment.created_at,
+                      payload: comment });
+      }
+    }
+
+    return events;
+
+  };
+
+  var formatIssue = function(issue) {
+
+    var msg = [];
+
+    let openDate = new Date(issue.created_at).toString().replace(/ GMT.*/, ''),
+        name = issue.payload.user.login,
+        title = issue.payload.title;
+
+    // some variations and comments on notable things
+    // morning, afternoon, evening, middle-of-the-night (which will not be accurate, but whatevs)
+
+    msg = [`On ${openDate}, ${name} opened a new issue called "${title}".`];
+
+    // this is crude, horrible, and also crude. PROOF OF CONCEPT, OK?
+    if (isAdmin(issue.payload)) {
+      msg.push('But it\'s an admin issue, so who cares?');
+    } else if (isCompleted(issue.payload)) {
+      msg.push('And it\'s been completed. Sweet!');
+    }
+
+    return msg;
+
+  };
+
+  var formatComment = function(event) {
+
+    var msg = [],
+        comment = event.payload;
+
+    let openDate = new Date(comment.created_at).toString().replace(/ GMT.*/, ''),
+        name = comment.user.login,
+        body = comment.body;
+
+    msg = [`On ${openDate}, ${name} commented: "${body}"`];
+
+    return msg;
+
+  };
+
+
+  /**
+   TODO: transform the issues into a list of events
+   1 issue != 1 event
+   since an issue can have comments, labels, etc.
+   - each of which becomes their own event
+   ....
+   BUT will the story be told purely linearly?
+   Maybe as a first draft,
+   or as one strategy?
+   **/
   var narrate = function(issues) {
 
     var txt = [];
@@ -109,34 +213,62 @@ var narrative = function(filename) {
     // those will be sorted next
     // Events will have properties like notability or interest, or summat
 
-    issues.sort(function(a,b) {
-      // a = new Date(a.created_at);
-      // b = new Date(b.created_at);
-      // return a > b ? -1 : a < b ? 1 : 0;
+    var events = getEvents(issues);
+
+    var sorter = function(a,b) {
       return new Date(a.created_at) - new Date(b.created_at);
-    });
+    };
 
-    for (var i = 0; i < issues.length; i++) {
+    issues.sort(sorter);
+    events.sort(sorter);
 
-      var issue = issues[i],
-          openDate = new Date(issue.created_at).toString().replace(/ GMT.*/, ''),
-          name = issue.user.login,
-          title = issue.title;
+    if (true) { // use events
 
-      // some variations and comments on notable things
-      // morning, afternoon, evening, middle-of-the-night (which will not be accurate, but whatevs)
+      for (let event of events) {
+        let msg = '';
+        switch (event.eventtype) {
 
-      var msg = [`On ${openDate}, ${name} opened a new issue called "${title}".`];
+        case 'issue':
+          msg = formatIssue(event);
+          break;
 
-      // this is crude, horrible, and also crude. PROOF OF CONCEPT, OK?
-      if (isAdmin(issue)) {
-        msg.push('But it\'s an admin issue, so who cares?');
-      } else if (isCompleted(issue)) {
-        msg.push('And it\'s been completed. Sweet!');
+        case 'comment':
+          msg = formatComment(event);
+          break;
+
+        default:
+          msg = [`UNKNOWN EVENTTYPE ${event.eventtype}`];
+
+        }
+
+
+        txt.push(msg.join(' ').trim());
+
       }
+    } else {
 
-      txt.push(msg.join(' '));
+      for (var i = 0; i < issues.length; i++) {
 
+        let issue = issues[i],
+            openDate = new Date(issue.created_at).toString().replace(/ GMT.*/, ''),
+            name = issue.user.login,
+            title = issue.title;
+
+        // some variations and comments on notable things
+        // morning, afternoon, evening, middle-of-the-night (which will not be accurate, but whatevs)
+
+        let msg = [`On ${openDate}, ${name} opened a new issue called "${title}".`];
+
+        // this is crude, horrible, and also crude. PROOF OF CONCEPT, OK?
+        if (isAdmin(issue)) {
+          msg.push('But it\'s an admin issue, so who cares?');
+        } else if (isCompleted(issue)) {
+          msg.push('And it\'s been completed. Sweet!');
+        }
+
+        txt.push(msg.join(' '));
+
+      }
     }
 
     return txt.join('\n');
@@ -187,10 +319,8 @@ program
   .option('-n --name [string]', 'name of archive file', 'archive.json')
   .parse(process.argv);
 
-console.log(program);
-
 if (program.archive !== undefined) {
   narrative(program.name);
 } else {
   narrative();
-};
+}
