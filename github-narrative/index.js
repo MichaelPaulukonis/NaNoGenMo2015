@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO: expose some of this, purely for testing
+// but then, who knows....
 var narrative = function(filename) {
 
   var request = require('sync-request'),
@@ -146,8 +148,19 @@ var narrative = function(filename) {
         // this "pure" linear-narrative makes the comments... weird.
         events.push({ eventtype: 'comment',
                       created_at: comment.created_at,
-                      payload: comment });
+                      payload: comment,
+                      parent: issue});
       }
+
+      for (let event of issue.events) {
+        events.push({ eventtype: 'event',
+                      created_at: event.created_At,
+                      payload: event,
+                      parent: issue});
+      }
+
+      // TODO: same for events
+
     }
 
     return events;
@@ -185,9 +198,35 @@ var narrative = function(filename) {
 
     let openDate = new Date(comment.created_at).toString().replace(/ GMT.*/, ''),
         name = comment.user.login,
-        body = comment.body;
+        body = comment.body,
+        issue = event.parent;
 
-    msg = [`On ${openDate}, ${name} commented: "${body}"`];
+    /**
+     TODO: process the comment body.
+
+     If it's "too large" give an extract, or something.
+
+     **/
+
+    msg = [`On ${openDate}, ${name} commented on issue #${issue.number}, \'${issue.title}\': "${body}"`];
+
+    return msg;
+
+  };
+
+  // TODO: look at all the various types of events, and think how we'll handle them
+  // or ignore them....
+  var formatEvent = function(item) {
+
+    var msg = [],
+        event = item.payload;
+
+    let openDate = new Date(event.created_at).toString().replace(/ GMT.*/, ''),
+        name = event.actor.login,
+        body = event.event,
+        issue = item.parent;
+
+     msg = [`On ${openDate}, ${name} evented on issue #${issue.number}, \'${issue.title}\': "${body}"`];
 
     return msg;
 
@@ -234,6 +273,10 @@ var narrative = function(filename) {
 
         case 'comment':
           msg = formatComment(event);
+          break;
+
+        case 'event':
+          msg = formatEvent(event);
           break;
 
         default:

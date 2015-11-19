@@ -1,0 +1,491 @@
+[
+  {
+    "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/162",
+    "labels_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/162/labels{/name}",
+    "comments_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/162/comments",
+    "events_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/162/events",
+    "html_url": "https://github.com/dariusk/NaNoGenMo-2015/issues/162",
+    "id": 117502063,
+    "number": 162,
+    "title": "The Tale of the Github Repository",
+    "user": {
+      "login": "MichaelPaulukonis",
+      "id": 2607898,
+      "avatar_url": "https://avatars.githubusercontent.com/u/2607898?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MichaelPaulukonis",
+      "html_url": "https://github.com/MichaelPaulukonis",
+      "followers_url": "https://api.github.com/users/MichaelPaulukonis/followers",
+      "following_url": "https://api.github.com/users/MichaelPaulukonis/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MichaelPaulukonis/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MichaelPaulukonis/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MichaelPaulukonis/subscriptions",
+      "organizations_url": "https://api.github.com/users/MichaelPaulukonis/orgs",
+      "repos_url": "https://api.github.com/users/MichaelPaulukonis/repos",
+      "events_url": "https://api.github.com/users/MichaelPaulukonis/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MichaelPaulukonis/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "milestone": null,
+    "comments": [
+      {
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/comments/157586821",
+        "html_url": "https://github.com/dariusk/NaNoGenMo-2015/issues/162#issuecomment-157586821",
+        "issue_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/162",
+        "id": 157586821,
+        "user": {
+          "login": "MichaelPaulukonis",
+          "id": 2607898,
+          "avatar_url": "https://avatars.githubusercontent.com/u/2607898?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/MichaelPaulukonis",
+          "html_url": "https://github.com/MichaelPaulukonis",
+          "followers_url": "https://api.github.com/users/MichaelPaulukonis/followers",
+          "following_url": "https://api.github.com/users/MichaelPaulukonis/following{/other_user}",
+          "gists_url": "https://api.github.com/users/MichaelPaulukonis/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/MichaelPaulukonis/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/MichaelPaulukonis/subscriptions",
+          "organizations_url": "https://api.github.com/users/MichaelPaulukonis/orgs",
+          "repos_url": "https://api.github.com/users/MichaelPaulukonis/repos",
+          "events_url": "https://api.github.com/users/MichaelPaulukonis/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/MichaelPaulukonis/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2015-11-18T02:57:04Z",
+        "updated_at": "2015-11-18T02:57:04Z",
+        "body": "It has not escaped my attention that this is also the story of NaNoGenMo-2015."
+      }
+    ],
+    "created_at": "2015-11-18T02:56:32Z",
+    "updated_at": "2015-11-18T02:57:04Z",
+    "closed_at": null,
+    "body": "Github repositories are full of events. Can we frame these events as a story?\r\n\r\nOF COURSE WE CAN!!!\r\n\r\nCan we make this story _interesting_?\r\n\r\nLet's avoid answering that, shall we?\r\n\r\n\r\nCode and notes are here: https://github.com/MichaelPaulukonis/NaNoGenMo2015/tree/master/github-narrative\r\n\r\nI have a small proof-of-concept gist [here](https://gist.github.com/MichaelPaulukonis/663a224d7faf40a698d6).\r\n\r\nExtracts:\r\n\r\n\r\n>On Sun Oct 25 2015 19:27:52, dariusk opened a new issue called \"Resources\". But it's an admin issue, so who cares?\r\nOn Sun Oct 25 2015 19:28:38, dariusk opened a new issue called \"Procedural Visual Novel\".\r\nOn Sun Oct 25 2015 19:55:08, bcj opened a new issue called \"An Attempt to Exhaust Memory to Simulate a Place to Attempt to Exhaust\".\r\nOn Sun Oct 25 2015 22:41:47, zachwhalen opened a new issue called \"Using a password dump for a corpus\".\r\nOn Wed Oct 28 2015 16:18:43, tra38 opened a new issue called \"The Atheists Who Believe In God\". And it's been completed. Sweet!\r\n\r\n\r\nThe plan is to dig deeper -- getting time-frames for when labels were placed (so we know what was completed first, etc), interesting events (opened a 2nd issue, completed a second project, etc). If the word count is absolutely abominable -- I also have the entire body of comments to play with.\r\n\r\nMy original thought was to tell the \"story\" of my past year on GitHub -- but only the last 300 events/90-days of events are available via the API, so I switched tracks.",
+    "events": []
+  },
+  {
+    "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/161",
+    "labels_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/161/labels{/name}",
+    "comments_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/161/comments",
+    "events_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/161/events",
+    "html_url": "https://github.com/dariusk/NaNoGenMo-2015/issues/161",
+    "id": 117357771,
+    "number": 161,
+    "title": "PKD Pitches For Screenwriters: A Novel",
+    "user": {
+      "login": "enkiv2",
+      "id": 490009,
+      "avatar_url": "https://avatars.githubusercontent.com/u/490009?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/enkiv2",
+      "html_url": "https://github.com/enkiv2",
+      "followers_url": "https://api.github.com/users/enkiv2/followers",
+      "following_url": "https://api.github.com/users/enkiv2/following{/other_user}",
+      "gists_url": "https://api.github.com/users/enkiv2/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/enkiv2/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/enkiv2/subscriptions",
+      "organizations_url": "https://api.github.com/users/enkiv2/orgs",
+      "repos_url": "https://api.github.com/users/enkiv2/repos",
+      "events_url": "https://api.github.com/users/enkiv2/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/enkiv2/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/labels/completed",
+        "name": "completed",
+        "color": "009800"
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "milestone": null,
+    "comments": [
+      {
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/comments/157514210",
+        "html_url": "https://github.com/dariusk/NaNoGenMo-2015/issues/161#issuecomment-157514210",
+        "issue_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/161",
+        "id": 157514210,
+        "user": {
+          "login": "dariusk",
+          "id": 266454,
+          "avatar_url": "https://avatars.githubusercontent.com/u/266454?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dariusk",
+          "html_url": "https://github.com/dariusk",
+          "followers_url": "https://api.github.com/users/dariusk/followers",
+          "following_url": "https://api.github.com/users/dariusk/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dariusk/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dariusk/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dariusk/subscriptions",
+          "organizations_url": "https://api.github.com/users/dariusk/orgs",
+          "repos_url": "https://api.github.com/users/dariusk/repos",
+          "events_url": "https://api.github.com/users/dariusk/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dariusk/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2015-11-17T21:33:36Z",
+        "updated_at": "2015-11-17T21:33:36Z",
+        "body": "Into it."
+      }
+    ],
+    "created_at": "2015-11-17T13:49:24Z",
+    "updated_at": "2015-11-17T21:33:36Z",
+    "closed_at": null,
+    "body": "Completed novel: https://github.com/enkiv2/NaNoGenMo-2015/blob/master/pkdpitches.md\r\nSource: https://github.com/enkiv2/NaNoGenMo-2015/blob/master/pkdpitches.gg https://github.com/enkiv2/NaNoGenMo-2015/blob/master/pkdpitches.sh",
+    "events": [
+      {
+        "id": 466704110,
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/events/466704110",
+        "actor": {
+          "login": "hugovk",
+          "id": 1324225,
+          "avatar_url": "https://avatars.githubusercontent.com/u/1324225?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/hugovk",
+          "html_url": "https://github.com/hugovk",
+          "followers_url": "https://api.github.com/users/hugovk/followers",
+          "following_url": "https://api.github.com/users/hugovk/following{/other_user}",
+          "gists_url": "https://api.github.com/users/hugovk/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/hugovk/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/hugovk/subscriptions",
+          "organizations_url": "https://api.github.com/users/hugovk/orgs",
+          "repos_url": "https://api.github.com/users/hugovk/repos",
+          "events_url": "https://api.github.com/users/hugovk/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/hugovk/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "labeled",
+        "commit_id": null,
+        "commit_url": null,
+        "created_at": "2015-11-17T14:11:25Z",
+        "label": {
+          "name": "completed",
+          "color": "009800"
+        }
+      }
+    ]
+  },
+  {
+    "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/160",
+    "labels_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/160/labels{/name}",
+    "comments_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/160/comments",
+    "events_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/160/events",
+    "html_url": "https://github.com/dariusk/NaNoGenMo-2015/issues/160",
+    "id": 117183078,
+    "number": 160,
+    "title": "Dreams Before Speeches",
+    "user": {
+      "login": "VincentToups",
+      "id": 31994,
+      "avatar_url": "https://avatars.githubusercontent.com/u/31994?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/VincentToups",
+      "html_url": "https://github.com/VincentToups",
+      "followers_url": "https://api.github.com/users/VincentToups/followers",
+      "following_url": "https://api.github.com/users/VincentToups/following{/other_user}",
+      "gists_url": "https://api.github.com/users/VincentToups/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/VincentToups/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/VincentToups/subscriptions",
+      "organizations_url": "https://api.github.com/users/VincentToups/orgs",
+      "repos_url": "https://api.github.com/users/VincentToups/repos",
+      "events_url": "https://api.github.com/users/VincentToups/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/VincentToups/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/labels/completed",
+        "name": "completed",
+        "color": "009800"
+      },
+      {
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/labels/preview",
+        "name": "preview",
+        "color": "c7def8"
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "milestone": null,
+    "comments": [],
+    "created_at": "2015-11-16T17:58:30Z",
+    "updated_at": "2015-11-16T18:56:07Z",
+    "closed_at": null,
+    "body": "Hello.  \r\n\r\nHere is my novel, [Dreams Before Speeches](https://github.com/VincentToups/DreamsBeforeSpeeches/).\r\n\r\nHere are excerpts:\r\n\r\nMR. NEWMAN : I'm afraid my message that night was grim and disturbing. I remember telling you we were in the worst economic mess since the Depression. We're here because humanity refuses to accept that our relationship be guided by reason in everything; that is to say, in good conscience, the satisfaction which we no longer have any Real knowledge of it.\r\n\r\nThe world exists as the mirror of the Indian philosophers declares, “ It is a narrow-minded and ridiculous thing not to architecture, which admits it merely as extraneous ornament, and could Dispense with it.\r\n\r\nWe're also gathered here for a special event -- the national funeral for an unknown soldier who will today join the heroes of Lebanon and for the preservation of the sacred fire of liberty “ is “ finally staked on the experiment entrusted to the hands of the people. The Bible tells us there will be no immigration reform without employer sanctions, because it does such violence to the spirit, thwarting the human impulse to create, to enjoy life to the fullest, and to inquire into the cause of mankind and world peace. We can decide the tough issues not by who is right, infinitely surpassing Everything else that exists merely relatively, still remained unknown.\r\n\r\nMake no mistake about it, this attack was not just against ourselves or the Republic of Korea -- South Korea -- has offered to permit certain events of the 1988 Olympics to take place to begin with, and this will also show how old our view is, though the mass of philosophical knowledge of the subject, which makes mathematics so difficult. This becomes less in the idyll, still less to reproach him because he is Yet always thrown aside as vanished illusions. We are compelled by the principle of sufficient reason is truth, only as modifications of the actual world; thus according to this doctrine is old : it appears in the one case we find in the Vedas, Purana, poems, myths, legends of their saints, maxims and precepts, (85) we see that several ideas which are different in unessential particulars may be Allowed expressing myself by a metaphor.\r\n\r\n",
+    "events": [
+      {
+        "id": 465801269,
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/events/465801269",
+        "actor": {
+          "login": "hugovk",
+          "id": 1324225,
+          "avatar_url": "https://avatars.githubusercontent.com/u/1324225?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/hugovk",
+          "html_url": "https://github.com/hugovk",
+          "followers_url": "https://api.github.com/users/hugovk/followers",
+          "following_url": "https://api.github.com/users/hugovk/following{/other_user}",
+          "gists_url": "https://api.github.com/users/hugovk/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/hugovk/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/hugovk/subscriptions",
+          "organizations_url": "https://api.github.com/users/hugovk/orgs",
+          "repos_url": "https://api.github.com/users/hugovk/repos",
+          "events_url": "https://api.github.com/users/hugovk/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/hugovk/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "labeled",
+        "commit_id": null,
+        "commit_url": null,
+        "created_at": "2015-11-16T18:56:07Z",
+        "label": {
+          "name": "completed",
+          "color": "009800"
+        }
+      },
+      {
+        "id": 465801270,
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/events/465801270",
+        "actor": {
+          "login": "hugovk",
+          "id": 1324225,
+          "avatar_url": "https://avatars.githubusercontent.com/u/1324225?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/hugovk",
+          "html_url": "https://github.com/hugovk",
+          "followers_url": "https://api.github.com/users/hugovk/followers",
+          "following_url": "https://api.github.com/users/hugovk/following{/other_user}",
+          "gists_url": "https://api.github.com/users/hugovk/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/hugovk/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/hugovk/subscriptions",
+          "organizations_url": "https://api.github.com/users/hugovk/orgs",
+          "repos_url": "https://api.github.com/users/hugovk/repos",
+          "events_url": "https://api.github.com/users/hugovk/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/hugovk/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "labeled",
+        "commit_id": null,
+        "commit_url": null,
+        "created_at": "2015-11-16T18:56:07Z",
+        "label": {
+          "name": "preview",
+          "color": "c7def8"
+        }
+      }
+    ]
+  },
+  {
+    "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/159",
+    "labels_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/159/labels{/name}",
+    "comments_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/159/comments",
+    "events_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/159/events",
+    "html_url": "https://github.com/dariusk/NaNoGenMo-2015/issues/159",
+    "id": 117168045,
+    "number": 159,
+    "title": "Fake press coverage of NaNoGenMo: a novel",
+    "user": {
+      "login": "enkiv2",
+      "id": 490009,
+      "avatar_url": "https://avatars.githubusercontent.com/u/490009?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/enkiv2",
+      "html_url": "https://github.com/enkiv2",
+      "followers_url": "https://api.github.com/users/enkiv2/followers",
+      "following_url": "https://api.github.com/users/enkiv2/following{/other_user}",
+      "gists_url": "https://api.github.com/users/enkiv2/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/enkiv2/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/enkiv2/subscriptions",
+      "organizations_url": "https://api.github.com/users/enkiv2/orgs",
+      "repos_url": "https://api.github.com/users/enkiv2/repos",
+      "events_url": "https://api.github.com/users/enkiv2/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/enkiv2/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/labels/completed",
+        "name": "completed",
+        "color": "009800"
+      },
+      {
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/labels/preview",
+        "name": "preview",
+        "color": "c7def8"
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "milestone": null,
+    "comments": [
+      {
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/comments/157113867",
+        "html_url": "https://github.com/dariusk/NaNoGenMo-2015/issues/159#issuecomment-157113867",
+        "issue_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/159",
+        "id": 157113867,
+        "user": {
+          "login": "tra38",
+          "id": 11179090,
+          "avatar_url": "https://avatars.githubusercontent.com/u/11179090?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/tra38",
+          "html_url": "https://github.com/tra38",
+          "followers_url": "https://api.github.com/users/tra38/followers",
+          "following_url": "https://api.github.com/users/tra38/following{/other_user}",
+          "gists_url": "https://api.github.com/users/tra38/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/tra38/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/tra38/subscriptions",
+          "organizations_url": "https://api.github.com/users/tra38/orgs",
+          "repos_url": "https://api.github.com/users/tra38/repos",
+          "events_url": "https://api.github.com/users/tra38/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/tra38/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2015-11-16T17:41:06Z",
+        "updated_at": "2015-11-16T17:42:12Z",
+        "body": ">Says Mister Kazemi, \"It's more about doing something that is entertaining to yourself and possibly to other people\". \"It's not hard to tell a story. It's hard to tell good stories. How do you get a computer to understand what good means?\", says Computer Scientist Mark Riedl. \"But there's no guarantee of quality in NaNoWriMo proper, either, and there's probably less risk of emergent cryptozoological erotica\", writes an article from last month in The Verge.\r\n\r\nWhile the computer does not care what lines it prints out, this following paragraph 'flows' and make sense. Of course, you had to generate hundreds of paragraphs that made less sense...in order to get this one paragraph that made sense.\r\n\r\nConsider the following near-future: Journalists stop writing entirely. \"Journalists\" instead proudly call themselves \"editors\" and \"content curators\", out to make sense of a insane world. Their 'best practices' are the following:\r\n1) Write code that takes information from a corpus (or use an open-source program to generate the code for them).\r\n2) Generate 50,000 words of nonsense, from said corpus.\r\n3) Read through the nonsense to find something interesting.\r\n4) Copy and paste.\r\n\r\nWhether that future is dystopian (jobs are going away, writing loses meaning) or utopian (symbiosis of man and machine) depends on your thoughts about automation in general."
+      },
+      {
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/comments/157116377",
+        "html_url": "https://github.com/dariusk/NaNoGenMo-2015/issues/159#issuecomment-157116377",
+        "issue_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/159",
+        "id": 157116377,
+        "user": {
+          "login": "ikarth",
+          "id": 1009991,
+          "avatar_url": "https://avatars.githubusercontent.com/u/1009991?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/ikarth",
+          "html_url": "https://github.com/ikarth",
+          "followers_url": "https://api.github.com/users/ikarth/followers",
+          "following_url": "https://api.github.com/users/ikarth/following{/other_user}",
+          "gists_url": "https://api.github.com/users/ikarth/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/ikarth/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/ikarth/subscriptions",
+          "organizations_url": "https://api.github.com/users/ikarth/orgs",
+          "repos_url": "https://api.github.com/users/ikarth/repos",
+          "events_url": "https://api.github.com/users/ikarth/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/ikarth/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2015-11-16T17:46:22Z",
+        "updated_at": "2015-11-16T17:46:22Z",
+        "body": "> Whether that future is dystopian (jobs are going away, writing loses meaning) or utopian (symbiosis of man and machine) depends on your thoughts about automation in general.\r\n\r\nI love how this one book says something about journalism, clickbait, automation, and the human condition, mostly through its processes rather than the individual output per se."
+      },
+      {
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/comments/157119776",
+        "html_url": "https://github.com/dariusk/NaNoGenMo-2015/issues/159#issuecomment-157119776",
+        "issue_url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/159",
+        "id": 157119776,
+        "user": {
+          "login": "enkiv2",
+          "id": 490009,
+          "avatar_url": "https://avatars.githubusercontent.com/u/490009?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/enkiv2",
+          "html_url": "https://github.com/enkiv2",
+          "followers_url": "https://api.github.com/users/enkiv2/followers",
+          "following_url": "https://api.github.com/users/enkiv2/following{/other_user}",
+          "gists_url": "https://api.github.com/users/enkiv2/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/enkiv2/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/enkiv2/subscriptions",
+          "organizations_url": "https://api.github.com/users/enkiv2/orgs",
+          "repos_url": "https://api.github.com/users/enkiv2/repos",
+          "events_url": "https://api.github.com/users/enkiv2/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/enkiv2/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2015-11-16T17:57:59Z",
+        "updated_at": "2015-11-16T17:57:59Z",
+        "body": "Just like how in Montfort's 1k generators the evocative sentences are\nessentially randomly chosen, all the quotes in the articles are real quotes\nthat are just chosen and placed randomly. It's sort of surprising that so\nmany of these collections of quotes seem to follow each other and make\nsense, since they were taken from different articles and interviews, and\nsince more than half of Hugo's are about meow.py.\n\nOn Mon, Nov 16, 2015 at 12:46 PM Isaac Karth <notifications@github.com>\nwrote:\n\n> Whether that future is dystopian (jobs are going away, writing loses\n> meaning) or utopian (symbiosis of man and machine) depends on your thoughts\n> about automation in general.\n>\n> I love how this one book says something about journalism, clickbait,\n> automation, and the human condition, mostly through its processes rather\n> than the individual output per se.\n>\n> —\n> Reply to this email directly or view it on GitHub\n> <https://github.com/dariusk/NaNoGenMo-2015/issues/159#issuecomment-157116377>\n> .\n>\n"
+      }
+    ],
+    "created_at": "2015-11-16T16:52:36Z",
+    "updated_at": "2015-11-16T18:52:33Z",
+    "closed_at": null,
+    "body": "Based on suggestions in thread #9 \r\n\r\nSource: https://github.com/enkiv2/NaNoGenMo-2015/blob/master/clickbait.gg\r\nCompleted novel: https://github.com/enkiv2/NaNoGenMo-2015/blob/master/clickbait.md",
+    "events": [
+      {
+        "id": 465797355,
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/events/465797355",
+        "actor": {
+          "login": "hugovk",
+          "id": 1324225,
+          "avatar_url": "https://avatars.githubusercontent.com/u/1324225?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/hugovk",
+          "html_url": "https://github.com/hugovk",
+          "followers_url": "https://api.github.com/users/hugovk/followers",
+          "following_url": "https://api.github.com/users/hugovk/following{/other_user}",
+          "gists_url": "https://api.github.com/users/hugovk/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/hugovk/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/hugovk/subscriptions",
+          "organizations_url": "https://api.github.com/users/hugovk/orgs",
+          "repos_url": "https://api.github.com/users/hugovk/repos",
+          "events_url": "https://api.github.com/users/hugovk/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/hugovk/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "labeled",
+        "commit_id": null,
+        "commit_url": null,
+        "created_at": "2015-11-16T18:52:33Z",
+        "label": {
+          "name": "completed",
+          "color": "009800"
+        }
+      },
+      {
+        "id": 465797356,
+        "url": "https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/events/465797356",
+        "actor": {
+          "login": "hugovk",
+          "id": 1324225,
+          "avatar_url": "https://avatars.githubusercontent.com/u/1324225?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/hugovk",
+          "html_url": "https://github.com/hugovk",
+          "followers_url": "https://api.github.com/users/hugovk/followers",
+          "following_url": "https://api.github.com/users/hugovk/following{/other_user}",
+          "gists_url": "https://api.github.com/users/hugovk/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/hugovk/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/hugovk/subscriptions",
+          "organizations_url": "https://api.github.com/users/hugovk/orgs",
+          "repos_url": "https://api.github.com/users/hugovk/repos",
+          "events_url": "https://api.github.com/users/hugovk/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/hugovk/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "labeled",
+        "commit_id": null,
+        "commit_url": null,
+        "created_at": "2015-11-16T18:52:33Z",
+        "label": {
+          "name": "preview",
+          "color": "c7def8"
+        }
+      }
+    ]
+  }
+]
