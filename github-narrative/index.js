@@ -79,6 +79,9 @@ var narrative = function() {
 
    **/
 
+  // also have completed!!!
+  // we should really parse the file, and find what all the unique labels are.
+  // and then do something with that....
   var getLabelTypes = function(issue) {
 
     var labels = (issue.labels !== undefined ? issue.labels : []);
@@ -86,13 +89,15 @@ var narrative = function() {
     var labelTypes = {
       admin: false,
       completed: false,
-      preview: false
+      preview: false,
+      closed: false
     };
 
     for (let label of labels) {
       labelTypes.admin = (label.name === 'admin' || labelTypes.admin);
       labelTypes.completed = (label.name === 'completed' || labelTypes.completed);
       labelTypes.preview = (label.name === 'preview' || labelTypes.preview);
+      labelTypes.closed = (label.name === 'closed' || labelTypes.closed);
     }
 
     return labelTypes;
@@ -156,6 +161,45 @@ var narrative = function() {
 
   };
 
+  // how interesting are these atoms?
+  var rankAtoms = function(atoms) {
+
+    /** issue, primarily
+     however -- individual comments can be linked-to, as well.
+
+     How many comments?
+     How many labels? NO
+     Completed
+     Preview
+     Closed = negative
+     Admin is... neutral?
+     How many comments link to this issue?
+
+     Comments -- sentiment analysis?
+
+    **/
+
+    /**
+
+     Loop through all issues - this'll be an O(n^2)
+     1) rank by # of comments
+     2) rank by labels (see above)
+     3) rank by other issues that link here....
+
+     ----
+
+     It doesn't have to be O(n^2) does it?
+     loop through issues
+       capturing which issues its comments reference
+       but these are tracked - IN THE OTHER ISSUE as INCOMING
+     so a single-pass will get everything
+     then 1 more pass to find the totals
+
+
+     **/
+
+  };
+
   var formatOverview = function(atoms) {
 
     // TODO: we need some information about the repository -- that's not in the archive!
@@ -170,7 +214,7 @@ var narrative = function() {
     // TODO: capture # of preview issues
     // TODO: capture # of completed issues
 
-    return msg.join(' ');
+    return msg.join('\n');
 
   };
 
