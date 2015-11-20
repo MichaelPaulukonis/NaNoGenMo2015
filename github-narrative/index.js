@@ -108,40 +108,56 @@ var narrative = function() {
    }
    **/
 
-  // convert the issues.json into [event, event]
-  var getEvents = function(issues) {
+  // convert the issues.json into [atom, atom]
+  var getAtoms = function(issues) {
 
     // loop through all issues - including comments and events
     // sequence them all out, and then sort by date-thing
-    var events = [];
+    // the narrative universe is made up of atoms
+    // we could call them events,
+    // but that is a special term for one of the types of GitHub atoms
+    // and gets confusing...
+    var atoms = {
+      issues: [],
+      comments: [],
+      events: [],
+      timeline: [] // issues, comments, events - interspersed
+    };
 
     for (let issue of issues) {
       issue.labelTypes = getLabelTypes(issue);
 
-      events.push({ eventtype: 'issue',
+      atoms.issues.push({ eventtype: 'issue',
                     created_at: issue.created_at,
                     payload: issue });
+
+      if (issue.title === undefined) { console.log(issue); }
 
       for (let comment of issue.comments) {
         // needs to capture the particular issue it was aimed at
         // this "pure" linear-narrative makes the comments... weird.
-        events.push({ eventtype: 'comment',
+        atoms.comments.push({ eventtype: 'comment',
                       created_at: comment.created_at,
                       payload: comment,
                       parent: issue});
       }
 
       for (let event of issue.events) {
-        events.push({ eventtype: 'event',
-                      created_at: event.created_At,
+        atoms.events.push({ eventtype: 'event',
+                      created_at: event.created_at,
                       payload: event,
                       parent: issue});
       }
     }
 
-    return events;
+    atoms.timeline = atoms.issues.concat(atoms.comments.concat(atoms.events));
+
+
+
+    return atoms;
 
   };
+
 
   var formatIssue = function(event) {
 
@@ -230,33 +246,38 @@ var narrative = function() {
 
     var txt = [];
 
-    var events = getEvents(issues);
+    var atoms = getAtoms(issues);
 
     var sorter = function(a,b) {
       return new Date(a.created_at) - new Date(b.created_at);
     };
 
-    issues.sort(sorter);
-    events.sort(sorter);
+    atoms.issues.sort(sorter);
+    atoms.comments.sort(sorter);
+    atoms.events.sort(sorter);
+    atoms.timeline.sort(sorter);
 
-    for (let event of events) {
+    // TODO: overview
+
+
+    for (let atom of atoms.timeline) {
       let msg = '';
-      switch (event.eventtype) {
+      switch (atom.eventtype) {
 
       case 'issue':
-        msg = formatIssue(event);
+        msg = formatIssue(atom);
         break;
 
       case 'comment':
-        msg = formatComment(event);
+        msg = formatComment(atom);
         break;
 
       case 'event':
-        msg = formatEvent(event);
+        msg = formatEvent(atom);
         break;
 
       default:
-        msg = [`UNKNOWN EVENTTYPE ${event.eventtype}`];
+        msg = [`UNKNOWN EVENTTYPE ${atom.eventtype}`];
 
       }
 
@@ -272,31 +293,6 @@ var narrative = function() {
   var text = narrate(issues);
 
   console.log(text);
-
-  //https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues/161/events
-
-  // TODO: optionally parse a local copy of file
-
-  // actually, this looks really good, too:
-  // https://www.npmjs.com/package/github-scraper
-
-  // [...]
-  //      { url: '/dariusk/NaNoGenMo-2015/issues/137',
-  //        title: 'Automatic Essay Grading + (Markov Chains | Genetic Algorithm) = Novel?',
-  //        created: '2015-11-05T15:23:39Z',
-  //        author: 'nicholasg3',
-  //        comments: 1,
-  //        labels: [] },
-  //      { url: '/dariusk/NaNoGenMo-2015/issues/136',
-  //        title: 'The TPP: A "Found" Generated Novel',
-  //        created: '2015-11-05T14:24:46Z',
-  //        author: 'coleww',
-  //        comments: 6,
-  //        labels: [Object] } ],
-  //   url: 'https://github.com/dariusk/nanogenmo-2015/issues',
-  //   open: 159,
-  //   closed: 0,
-  //   next_page: '/dariusk/nanogenmo-2015/issues?page=2&q=is%3Aissue+is%3Aopen' }
 
 
 };
