@@ -1,20 +1,13 @@
 'use strict';
 
-// TODO: expose some of this, purely for testing
-// but then, who knows....
-var narrative = function(filename) {
+var archive = function(filename) {
+
 
   var request = require('sync-request'),
       parse = require('parse-link-header'),
       config = require('./config');
 
-  // temporary hard-coded username
-  // https://developer.github.com/v3/activity/events/
-  // can only grab last 90 days of events/300 items
-  // whichever is less
-  // var url = 'https://api.github.com/users/MichaelPaulukonis/events';
   var url = 'https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues';
-
 
   // let's do this syncronously becuase... :::sigh:::
   // quicker ?
@@ -43,8 +36,6 @@ var narrative = function(filename) {
       let page = getpage(next);
 
       // at this point, page.body is an array of issues
-      // loop through each, getting both the comments and events
-
       for (var i = 0; i < page.body.length; i++) {
         let issue = page.body[i];
         issue.events = getpage(issue.events_url).body;
@@ -57,20 +48,18 @@ var narrative = function(filename) {
       next = page.links.next.url;
 
     }
-
   }
 
-  if (filename !== undefined) {
-    var fs = require('fs');
-    fs.writeFileSync(filename, JSON.stringify(issues, null, 2));
+  var fs = require('fs');
+  fs.writeFileSync(filename, JSON.stringify(issues, null, 2));
 
-    process.exit();
+};
 
-  }
+// TODO: expose some of this, purely for testing
+// but then, who knows....
+var narrative = function() {
 
-  // This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-  // > new Date('2015-10-26T12:05:52Z').toString()
-  // 'Mon Oct 26 2015 08:05:52 GMT-0400 (Eastern Daylight Time)'
+  var config = require('./config');
 
   /**
 
@@ -90,37 +79,24 @@ var narrative = function(filename) {
 
    **/
 
-  // TODO: label extractor
-  // completed, preview, admin, etc
-  // TODO: extracctor to find out what uniqueness we've got...
-  var isAdmin = function(issue) {
-    var isAdmin = false;
+  var getLabelTypes = function(issue) {
 
     var labels = (issue.labels !== undefined ? issue.labels : []);
 
-    for (var i = 0; i < labels.length; i++) {
-      if (labels[i].name === 'admin') {
-        isAdmin = true;
-        break;
-      }
+    var labelTypes = {
+      admin: false,
+      completed: false,
+      preview: false
+    };
+
+    for (let label of labels) {
+      labelTypes.admin = (label.name === 'admin' || labelTypes.admin);
+      labelTypes.completed = (label.name === 'completed' || labelTypes.completed);
+      labelTypes.preview = (label.name === 'preview' || labelTypes.preview);
     }
 
-    return isAdmin;
-  };
+    return labelTypes;
 
-  var isCompleted = function(issue) {
-    var isCompleted = false;
-
-    var labels = (issue.labels !== undefined ? issue.labels : []);
-
-    for (var i = 0; i < labels.length; i++) {
-      if (labels[i].name === 'completed') {
-        isCompleted = true;
-        break;
-      }
-    }
-
-    return isCompleted;
   };
 
 
@@ -132,6 +108,7 @@ var narrative = function(filename) {
    }
    **/
 
+  // convert the issues.json into [event, event]
   var getEvents = function(issues) {
 
     // loop through all issues - including comments and events
@@ -139,6 +116,8 @@ var narrative = function(filename) {
     var events = [];
 
     for (let issue of issues) {
+      issue.labelTypes = getLabelTypes(issue);
+
       events.push({ eventtype: 'issue',
                     created_at: issue.created_at,
                     payload: issue });
@@ -158,22 +137,20 @@ var narrative = function(filename) {
                       payload: event,
                       parent: issue});
       }
-
-      // TODO: same for events
-
     }
 
     return events;
 
   };
 
-  var formatIssue = function(issue) {
+  var formatIssue = function(event) {
 
     var msg = [];
 
-    let openDate = new Date(issue.created_at).toString().replace(/ GMT.*/, ''),
-        name = issue.payload.user.login,
-        title = issue.payload.title;
+    let openDate = new Date(event.created_at).toString().replace(/ GMT.*/, ''),
+        issue = event.payload,
+        name = issue.user.login,
+        title = issue.title;
 
     // some variations and comments on notable things
     // morning, afternoon, evening, middle-of-the-night (which will not be accurate, but whatevs)
@@ -181,9 +158,15 @@ var narrative = function(filename) {
     msg = [`On ${openDate}, ${name} opened a new issue called "${title}".`];
 
     // this is crude, horrible, and also crude. PROOF OF CONCEPT, OK?
-    if (isAdmin(issue.payload)) {
+    if (issue.labelTypes.admin) {
       msg.push('But it\'s an admin issue, so who cares?');
-    } else if (isCompleted(issue.payload)) {
+    }
+
+    if (issue.labelTypes.preview) {
+      msg.push('There\'s a preview available.');
+    }
+
+    if (issue.labelTypes.completed) {
       msg.push('And it\'s been completed. Sweet!');
     }
 
@@ -216,17 +199,17 @@ var narrative = function(filename) {
 
   // TODO: look at all the various types of events, and think how we'll handle them
   // or ignore them....
-  var formatEvent = function(item) {
+  var formatEvent = function(evt) {
 
     var msg = [],
-        event = item.payload;
+        event = evt.payload;
 
-    let openDate = new Date(event.created_at).toString().replace(/ GMT.*/, ''),
+    let openDate = new Date(evt.created_at).toString().replace(/ GMT.*/, ''),
         name = event.actor.login,
         body = event.event,
-        issue = item.parent;
+        issue = evt.parent;
 
-     msg = [`On ${openDate}, ${name} evented on issue #${issue.number}, \'${issue.title}\': "${body}"`];
+    msg = [`On ${openDate}, ${name} evented on issue #${issue.number}, \'${issue.title}\': "${body}"`];
 
     return msg;
 
@@ -247,11 +230,6 @@ var narrative = function(filename) {
 
     var txt = [];
 
-    // TODO: get a sorted list
-    // TODO: create Event objects
-    // those will be sorted next
-    // Events will have properties like notability or interest, or summat
-
     var events = getEvents(issues);
 
     var sorter = function(a,b) {
@@ -261,66 +239,36 @@ var narrative = function(filename) {
     issues.sort(sorter);
     events.sort(sorter);
 
-    if (true) { // use events
+    for (let event of events) {
+      let msg = '';
+      switch (event.eventtype) {
 
-      for (let event of events) {
-        let msg = '';
-        switch (event.eventtype) {
+      case 'issue':
+        msg = formatIssue(event);
+        break;
 
-        case 'issue':
-          msg = formatIssue(event);
-          break;
+      case 'comment':
+        msg = formatComment(event);
+        break;
 
-        case 'comment':
-          msg = formatComment(event);
-          break;
+      case 'event':
+        msg = formatEvent(event);
+        break;
 
-        case 'event':
-          msg = formatEvent(event);
-          break;
-
-        default:
-          msg = [`UNKNOWN EVENTTYPE ${event.eventtype}`];
-
-        }
-
-
-        txt.push(msg.join(' ').trim());
+      default:
+        msg = [`UNKNOWN EVENTTYPE ${event.eventtype}`];
 
       }
-    } else {
 
-      for (var i = 0; i < issues.length; i++) {
+      txt.push(msg.join(' ').trim());
 
-        let issue = issues[i],
-            openDate = new Date(issue.created_at).toString().replace(/ GMT.*/, ''),
-            name = issue.user.login,
-            title = issue.title;
-
-        // some variations and comments on notable things
-        // morning, afternoon, evening, middle-of-the-night (which will not be accurate, but whatevs)
-
-        let msg = [`On ${openDate}, ${name} opened a new issue called "${title}".`];
-
-        // this is crude, horrible, and also crude. PROOF OF CONCEPT, OK?
-        if (isAdmin(issue)) {
-          msg.push('But it\'s an admin issue, so who cares?');
-        } else if (isCompleted(issue)) {
-          msg.push('And it\'s been completed. Sweet!');
-        }
-
-        txt.push(msg.join(' '));
-
-      }
     }
 
     return txt.join('\n');
 
   };
 
-
-  // console.log(JSON.stringify(issues, null, 2));
-
+  var issues = require(config.local_file);
   var text = narrate(issues);
 
   console.log(text);
@@ -363,7 +311,7 @@ program
   .parse(process.argv);
 
 if (program.archive !== undefined) {
-  narrative(program.name);
+  archive(program.name); // if not provided, we go with the default
 } else {
   narrative();
 }
