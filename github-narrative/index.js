@@ -152,9 +152,25 @@ var narrative = function() {
 
     atoms.timeline = atoms.issues.concat(atoms.comments.concat(atoms.events));
 
-
-
     return atoms;
+
+  };
+
+  var formatOverview = function(atoms) {
+
+    // TODO: we need some information about the repository -- that's not in the archive!
+
+    var msg = [];
+
+    msg.push(`There are ${atoms.issues.length} issues.`);
+    msg.push(`There are ${atoms.comments.length} comments.`);
+    msg.push(`There are ${atoms.events.length} events.`);
+
+    // TODO: capture # of admin issues
+    // TODO: capture # of preview issues
+    // TODO: capture # of completed issues
+
+    return msg.join(' ');
 
   };
 
@@ -258,6 +274,7 @@ var narrative = function() {
     atoms.timeline.sort(sorter);
 
     // TODO: overview
+    txt.push(formatOverview(atoms));
 
 
     for (let atom of atoms.timeline) {
