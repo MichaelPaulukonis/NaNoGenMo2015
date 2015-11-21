@@ -76,25 +76,26 @@ var narrative = function(filename) {
       issue.labelTypes = getLabelTypes(issue);
 
       atoms.issues.push({ eventtype: 'issue',
-                    created_at: issue.created_at,
-                    payload: issue });
+                          created_at: issue.created_at,
+                          payload: issue });
 
+      // TODO: this is the best handling method....
       if (issue.title === undefined) { console.log(issue); }
 
       for (let comment of issue.comments) {
         // needs to capture the particular issue it was aimed at
         // this "pure" linear-narrative makes the comments... weird.
         atoms.comments.push({ eventtype: 'comment',
-                      created_at: comment.created_at,
-                      payload: comment,
-                      parent: issue});
+                              created_at: comment.created_at,
+                              payload: comment,
+                              parent: issue});
       }
 
       for (let event of issue.events) {
         atoms.events.push({ eventtype: 'event',
-                      created_at: event.created_at,
-                      payload: event,
-                      parent: issue});
+                            created_at: event.created_at,
+                            payload: event,
+                            parent: issue});
       }
     }
 
@@ -120,7 +121,7 @@ var narrative = function(filename) {
 
      Comments -- sentiment analysis?
 
-    **/
+     **/
 
     /**
 
@@ -133,8 +134,8 @@ var narrative = function(filename) {
 
      It doesn't have to be O(n^2) does it?
      loop through issues
-       capturing which issues its comments reference
-       but these are tracked - IN THE OTHER ISSUE as INCOMING
+     capturing which issues its comments reference
+     but these are tracked - IN THE OTHER ISSUE as INCOMING
      so a single-pass will get everything
      then 1 more pass to find the totals
 
@@ -142,17 +143,35 @@ var narrative = function(filename) {
 
     let issues = atoms.issues;
 
-    for (let issue of issues) {
+    // THESE NUMBERS ARE PURELY ARBITRARY
+    for (let atom of issues) {
 
       // initialize, if not done elsewhere
       // (not expecting it, at this point)
-      if (issue.rank === undefined) { issue.rank = 0; }
+      if (atom.rank === undefined) { atom.rank = 0; }
 
+      var iss = atom.payload;
 
+      // TODO: this is a naive implementation
+      // non-author comments should rank higher
+      if (iss.comments) { atom.rank += iss.comments.length; }
 
+      if(!iss.labelTypes) {
+        console.log('no labelTypes: ' + iss.title);
+      } else {
+
+        // rank by labels
+        if (iss.labelTypes.preview) { atom.rank += 5; }
+        if (iss.labelTypes.completed) { atom.rank += 20; }
+        if (iss.labelTypes.closed) { atom.rank += -1; } // hrm...
+        // admin isss aren't as interesting....
+        if (!iss.labelTypes.admin) { atom.rank += 5; }
+
+      }
+
+      // console.log(`ranked '${atom.payload.title} as: ${atom.rank}`);
 
     }
-
 
   };
 
@@ -174,7 +193,7 @@ var narrative = function(filename) {
 
   };
 
-
+  // TODO: should be passing in atom instead of event
   var formatIssue = function(event) {
 
     var msg = [];
@@ -187,7 +206,7 @@ var narrative = function(filename) {
     // some variations and comments on notable things
     // morning, afternoon, evening, middle-of-the-night (which will not be accurate, but whatevs)
 
-    msg = [`On ${openDate}, ${name} opened a new issue called "${title}".`];
+    msg = [`On ${openDate}, ${name} opened a new issue called "${title}". It has a rank of ${event.rank}.`];
 
     // this is crude, horrible, and also crude. PROOF OF CONCEPT, OK?
     if (issue.labelTypes.admin) {
@@ -263,26 +282,40 @@ var narrative = function(filename) {
     var txt = [];
 
     var atoms = getAtoms(issues);
+    rankAtoms(atoms);
 
-    var sorter = function(a,b) {
+    // oldest first
+    var dateSorter = function(a,b) {
       return new Date(a.created_at) - new Date(b.created_at);
     };
 
-    atoms.issues.sort(sorter);
-    atoms.comments.sort(sorter);
-    atoms.events.sort(sorter);
-    atoms.timeline.sort(sorter);
+    // highest first
+    var rankSorter = function(a,b) {
+      // console.log(`${a.payload.title} : ${a.rank} <=> ${b.payload.title} : ${b.rank}`);
+      return b.rank - a.rank;
+    };
+
+    atoms.issues.sort(rankSorter);
+    atoms.comments.sort(dateSorter);
+    atoms.events.sort(dateSorter);
+    atoms.timeline.sort(dateSorter);
 
     // TODO: overview
     txt.push(formatOverview(atoms));
 
+    for (let atom of atoms.issues) {
+      let msg = formatIssue(atom);
+      txt.push(msg.join(' ').trim());
+    }
 
+    // note: the timeline is date sorted, not rank-sorted (as only the issues are rank-sorted)
     for (let atom of atoms.timeline) {
-      let msg = '';
+      let msg = [];
       switch (atom.eventtype) {
 
       case 'issue':
-        msg = formatIssue(atom);
+        // we've already output the issues
+        // msg = formatIssue(atom);
         break;
 
       case 'comment':
@@ -298,7 +331,7 @@ var narrative = function(filename) {
 
       }
 
-      txt.push(msg.join(' ').trim());
+      if (msg.length > 0) { txt.push(msg.join(' ').trim()); }
 
     }
 
