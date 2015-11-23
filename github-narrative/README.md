@@ -13,11 +13,25 @@ Once we have this data, we need to be able to sort it in different ways.
    1. early creation of issue/comment/badge/repo
 1. following a conversation ("issue") thread
 
+
 ## api sample urls
 
  - https://api.github.com/users/michaelpaulukonis
  - https://api.github.com/users/MichaelPaulukonis/events
  - https://api.github.com/repos/dariusk/NaNoGenMo-2015/issues
+
+# notes on where this is going
+ - I don't know.
+ - Make things into TOC, chapters, use MarkDown
+ - Parse out the comments; clean up the quoted junk from emails
+ - develop a heuristic to find links to the repo
+  - eg, github.com/{authorname}/
+  - not guaranteed
+  - if nothing found, see if there is a manual lookup-table to use
+   - that I populated, manually, for heuristic failures.
+  - but that can grab primary language
+ - command-line runner can include/exclude types of data
+ - dump the output to a ... formatter? printer? some other word I can't think of now...
 
 # prior art
 

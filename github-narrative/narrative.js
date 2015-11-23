@@ -2,7 +2,7 @@
 
 // TODO: expose some of this, purely for testing
 // but then, who knows....
-var narrative = function(filename) {
+var narrative = function(filename, include) {
 
   /**
 
@@ -259,25 +259,32 @@ var narrative = function(filename) {
         name = event.actor.login,
         body = event.event,
         issue = evt.parent;
+    /**
+     mentioned ''
+     subscribed 'to'
+     renamed
+     labeled
+     unlabeled
+     closed
+     reopened
 
-    msg = [`On ${openDate}, ${name} evented on issue #${issue.number}, \'${issue.title}\': "${body}"`];
+
+     On Thu Nov 19 2015 04:52:16, puckey evented on issue #9, 'Press Coverage': "subscribed"
+     On Thu Nov 19 2015 04:52:16, aparrish evented on issue #9, 'Press Coverage': "mentioned"
+     On Thu Nov 19 2015 15:48:46, hugovk evented on issue #163, 'Salutation, twirled!': "labeled"
+
+     **/
+
+    if (body === 'subscribed') { body += ' to'; }
+
+    msg = [`On ${openDate}, ${name} ${body} issue #${issue.number}, \'${issue.title}\'.`];
 
     return msg;
 
   };
 
 
-  /**
-   TODO: transform the issues into a list of events
-   1 issue != 1 event
-   since an issue can have comments, labels, etc.
-   - each of which becomes their own event
-   ....
-   BUT will the story be told purely linearly?
-   Maybe as a first draft,
-   or as one strategy?
-   **/
-  var narrate = function(issues) {
+  var narrate = function(issues, include) {
 
     var txt = [];
 
@@ -291,8 +298,7 @@ var narrative = function(filename) {
 
     // highest first
     var rankSorter = function(a,b) {
-      // console.log(`${a.payload.title} : ${a.rank} <=> ${b.payload.title} : ${b.rank}`);
-      return b.rank - a.rank;
+      return (b.rank == a.rank ? dateSorter(a,b) : b.rank - a.rank);
     };
 
     atoms.issues.sort(rankSorter);
@@ -300,14 +306,22 @@ var narrative = function(filename) {
     atoms.events.sort(dateSorter);
     atoms.timeline.sort(dateSorter);
 
-    // TODO: overview
     txt.push(formatOverview(atoms));
 
-    for (let atom of atoms.issues) {
-      let msg = formatIssue(atom);
-      txt.push(msg.join(' ').trim());
-    }
+    // this lists issues by rank
+    // how to pick which we want?
+    // or... are they separate things?
+    // for (let atom of atoms.issues) {
+    //   let msg = formatIssue(atom);
+    //   txt.push(msg.join(' ').trim());
+    // }
 
+    var includeIssues = include.indexOf('issues') >= 0;
+    var includeComments = include.indexOf('comments') >= 0;
+    var includeEvents = include.indexOf('events') >= 0;
+
+    // TODO: pass in parameters to 'ignore/include' certain types
+    // so we don't have to comment things out....
     // note: the timeline is date sorted, not rank-sorted (as only the issues are rank-sorted)
     for (let atom of atoms.timeline) {
       let msg = [];
@@ -315,15 +329,15 @@ var narrative = function(filename) {
 
       case 'issue':
         // we've already output the issues
-        // msg = formatIssue(atom);
+        if (includeIssues) { msg = formatIssue(atom); }
         break;
 
       case 'comment':
-        msg = formatComment(atom);
+        if (includeComments) { msg = formatComment(atom); }
         break;
 
       case 'event':
-        msg = formatEvent(atom);
+        if (includeEvents) { msg = formatEvent(atom); }
         break;
 
       default:
@@ -340,7 +354,7 @@ var narrative = function(filename) {
   };
 
   var issues = require('./' + filename);
-  var text = narrate(issues);
+  var text = narrate(issues, include);
 
   return text;
 
