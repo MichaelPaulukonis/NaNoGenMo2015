@@ -33,6 +33,11 @@ Once we have this data, we need to be able to sort it in different ways.
  - command-line runner can include/exclude types of data
  - dump the output to a ... formatter? printer? some other word I can't think of now...
 
+
+ - Would this be any good directed at https://github.com/GITenberg ?
+  - https://api.github.com/repos/GITenberg/Adventures-of-Huckleberry-Finn_76
+  - https://api.github.com/users/GITenberg/repos
+
 # prior art
 
 ## "github resume" generation:
@@ -60,3 +65,17 @@ Look into:
 I ran into the api-rate limitation for anonymous (?) access while testing dev code.
 I got a personal authentication token and added that to the queries.
 It was quite easy, and I should write that up.
+
+
+# twiddling the data
+
+```
+
+var data = require('./archive');
+
+var mine = data.filter(function(issue) {
+    return issue.user.login.toLowerCase() === 'michaelpaulukonis';
+  }).map(function(issue) {
+    return { number: issue.number, title: issue.title };
+  });
+```
