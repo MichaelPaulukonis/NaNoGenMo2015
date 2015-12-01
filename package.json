@@ -8,9 +8,12 @@
     "github-scraper": "^3.0.23",
     "jinq": "1.5.2",
     "linq": "3.0.5",
+    "node-mispelr": "file:C:\\Users\\MICHAE~1\\AppData\\Local\\Temp\\npm-2904-be119640\\git-cache-fbfe1d7fdab1\\9622934cb60c42e587212470adaf1ab282fd6f05",
+    "node-summary": "1.1.0",
     "parse-link-header": "^0.4.1",
     "request": "^2.65.0",
     "sync-request": "^2.1.0",
+    "tagspewer": "file:C:\\Users\\MICHAE~1\\AppData\\Local\\Temp\\npm-7920-59a3e910\\git-cache-6c24c033cbd7\\5ad5e575f00ddff0587b75e181b4c56cfad475c8",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

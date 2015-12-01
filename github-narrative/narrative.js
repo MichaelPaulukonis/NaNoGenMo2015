@@ -181,9 +181,9 @@ var narrative = function(filename, include) {
 
     var msg = [];
 
-    msg.push(`There are ${atoms.issues.length} issues.`);
-    msg.push(`There are ${atoms.comments.length} comments.`);
-    msg.push(`There are ${atoms.events.length} events.`);
+    msg.push(`\nThere are ${atoms.issues.length} issues.`);
+    msg.push(`\nThere are ${atoms.comments.length} comments.`);
+    msg.push(`\nThere are ${atoms.events.length} events.`);
 
     // TODO: capture # of admin issues
     // TODO: capture # of preview issues
@@ -194,31 +194,39 @@ var narrative = function(filename, include) {
   };
 
   // TODO: should be passing in atom instead of event
-  var formatIssue = function(event) {
+  var formatIssue = function(event, interest) {
 
     var msg = [];
 
     let openDate = new Date(event.created_at).toString().replace(/ GMT.*/, ''),
         issue = event.payload,
         name = issue.user.login,
-        title = issue.title;
+        title = issue.title,
+        admin = '',
+        preview = '',
+        completed = '';
 
     // some variations and comments on notable things
     // morning, afternoon, evening, middle-of-the-night (which will not be accurate, but whatevs)
 
-    msg = [`On ${openDate}, ${name} opened a new issue called "${title}". It has a rank of ${event.rank}.`];
+    if (interest === undefined) {
 
-    // this is crude, horrible, and also crude. PROOF OF CONCEPT, OK?
-    if (issue.labelTypes.admin) {
-      msg.push('But it\'s an admin issue, so who cares?');
-    }
+      // this is crude, horrible, and also crude. PROOF OF CONCEPT, OK?
+      if (issue.labelTypes.admin) {
+        admin = ' But it\'s an admin issue, so who cares?';
+      }
 
-    if (issue.labelTypes.preview) {
-      msg.push('There\'s a preview available.');
-    }
+      if (issue.labelTypes.preview) {
+        preview = ' There\'s a preview available.';
+      }
 
-    if (issue.labelTypes.completed) {
-      msg.push('And it\'s been completed. Sweet!');
+      if (issue.labelTypes.completed) {
+        completed = ' And it\'s been completed. Sweet!';
+      }
+
+      msg = [`\nOn ${openDate}, ${name} opened a new issue called _${title}_. It has a rank of ${event.rank}.${admin}${preview}${completed}`];
+    } else {
+      msg = [`\n_${title}_ was opened by ${name}.`];
     }
 
     return msg;
@@ -240,9 +248,12 @@ var narrative = function(filename, include) {
 
      If it's "too large" give an extract, or something.
 
+     ugh, the summarize code uses a callback
+     even though it's all essentially synchronous.
+
      **/
 
-    msg = [`On ${openDate}, ${name} commented on issue #${issue.number}, \'${issue.title}\': "${body}"`];
+    msg = [`\n  On ${openDate}, ${name} commented on issue #${issue.number}, \'${issue.title}\': "${body}"`];
 
     return msg;
 
@@ -277,7 +288,7 @@ var narrative = function(filename, include) {
 
     if (body === 'subscribed') { body += ' to'; }
 
-    msg = [`On ${openDate}, ${name} ${body} issue #${issue.number}, \'${issue.title}\'.`];
+    msg = [`\nOn ${openDate}, ${name} ${body} issue #${issue.number}, _${issue.title}_.`];
 
     return msg;
 
@@ -308,13 +319,22 @@ var narrative = function(filename, include) {
 
     txt.push(formatOverview(atoms));
 
+
+    var interestingCount = 10;
+    txt.push(`\nThe top ${interestingCount} issues, ranked:`);
+
     // this lists issues by rank
     // how to pick which we want?
     // or... are they separate things?
+    let interest = true;
     // for (let atom of atoms.issues) {
-    //   let msg = formatIssue(atom);
-    //   txt.push(msg.join(' ').trim());
-    // }
+    for (let i = 0; i < interestingCount; i++) {
+      let atom = atoms.issues[i];
+      let msg = formatIssue(atom, interest);
+      txt.push(msg.join('\n'));
+    }
+
+    txt.push('');
 
     var includeIssues = include.indexOf('issues') >= 0;
     var includeComments = include.indexOf('comments') >= 0;
@@ -345,7 +365,7 @@ var narrative = function(filename, include) {
 
       }
 
-      if (msg.length > 0) { txt.push(msg.join(' ').trim()); }
+      if (msg.length > 0) { txt.push(msg.join('\n')); }
 
     }
 

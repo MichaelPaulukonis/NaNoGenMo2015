@@ -105,9 +105,11 @@ https://github.com/anihex/SimpleStoryCreator
  - http://textsummarization.net/text-summarization-api-document
  - https://github.com/pdehaan/summarizer
   - https://www.npmjs.com/package/summarizer
+  - which uses https://www.npmjs.com/package/summarize
+   - although this _does not actually provide a text summary_
+  - AND also uses https://github.com/jbrooksuk/node-summary
+   - https://www.npmjs.com/package/node-summary
  - http://www.splitbrain.org/services/ots
- - https://github.com/jbrooksuk/node-summary
-  - https://www.npmjs.com/package/node-summary
  - http://textanalysisonline.com/
  - http://textminingonline.com/getting-started-with-the-automatic-text-summarization-api-on-mashape
 

@@ -26,6 +26,16 @@ var archive = function(filename, url) {
 
   };
 
+  // TODO: we never capture the main page of the repo
+  // which undoubtedly has some juicy stuff in't
+  // aaaaand, once we parse that out...
+  // https://api.github.com/repos/michaelpaulukonis/pmwiki-bootstrap-skin
+  // "language": "CSS",
+  // "stargazers_count": 12,
+  // "watchers_count": 12,
+  // "forks_count": 7,
+
+
   var next = url,
       issues = [],
       nextPageExists = true;

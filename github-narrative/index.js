@@ -13,7 +13,7 @@ program
   .option('-f --file [string]', 'name of archive file (to read from/write to)', 'archive.json')
   .option('-u --url [string]', 'url of github issues')
   .option('-n --narrate [string]', 'tell the narrative')
-  .option('-i --include [string]', 'issues, comments, events', include, [])
+  .option('-i --include [string]', 'issues, comments, events', include, ['issues', 'comments', 'events'])
   .parse(process.argv);
 
 if (program.archive) {
